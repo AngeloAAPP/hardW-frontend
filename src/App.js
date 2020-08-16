@@ -1,12 +1,14 @@
 import React from 'react';
+import Routes from './routes'
+import GlobalStyles from './styles/globalstyles'
 
 const App = () => {
   return (
-    <div>
-      hardW
-    </div>
+    <>
+      <Routes/>
+      <GlobalStyles/>
+    </>
   )
 }
 
 export default App
-
