@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const CustomInput = styled.input`
-    width: 100%;
-    height: 90px;
+    width: ${props => props.width ? props.width : '100%'};
+    height: ${props => props.height ? props.height : '90px'};
     padding: 20px;
     border-radius: 8px;
     font-size: 20px;

@@ -1,9 +1,9 @@
 import React from 'react'
 import {CustomButton} from './styles'
 
-const Button = ({children, ...rest}) => {
+const Button = ({children, height, width, ...rest}) => {
     return (
-        <CustomButton {...rest}> 
+        <CustomButton height = {height} width = {width} {...rest}> 
             {children}
         </CustomButton>
     )

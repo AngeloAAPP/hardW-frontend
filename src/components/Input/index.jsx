@@ -1,9 +1,9 @@
 import React from 'react'
 import {CustomInput} from './styles'
 
-const Input = ({...rest}) => {
+const Input = ({height, width, ...rest}) => {
     return (
-        <CustomInput spellcheck = {false} {...rest}/>
+        <CustomInput spellcheck = {false} height = {height} width = {width} {...rest}/>
     )
 }
 

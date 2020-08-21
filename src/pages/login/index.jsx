@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-import {Container, LeftSide, RightSide, ContainerForm} from './styles'
-import HeaderForm from '../../components/HeaderForm'
-import Input from '../../components/Input'
-import Button from '../../components/Button'
+import {Container, LeftSide, RightSide} from './styles'
 import Logo from '../../assets/logo.png'
+import FormLogin from '../../components/FormLogin'
+import FormForgotPassword from '../../components/FormForgotPassword'
 
 const Login = () => {
+
+    const [form, setForm] = useState("Login")
+
     return (
         <Container>
             <LeftSide>
@@ -15,20 +17,11 @@ const Login = () => {
                 </a>
             </LeftSide>
             <RightSide>
-                <ContainerForm>
-                    <HeaderForm 
-                        title = "Bem-vindo novamente!"
-                    />
-                    <Input placeholder = "E-mail"/>
-                    <Input placeholder = "Senha" type = "password"/>
-                    <a className = "legend" href = "#">Esqueci minha senha</a>
-                    <Button>
-                        Entrar
-                    </Button>
-                    <span className = "legend">Não possui uma conta? 
-                        <a  href = "#">Cadastre-se</a>
-                    </span>
-                </ContainerForm>
+                {form === 'Login' ?  
+                        <FormLogin changeForm = {setForm}/> 
+                    : 
+                        <FormForgotPassword changeForm = {setForm}/>}
+                
             </RightSide>
         </Container>
     )

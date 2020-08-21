@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const CustomButton = styled.button`
-    height: 90px;
+    height: ${props => props.height ? props.height : '90px'};
     display: block;
-    width: 100%;
+    width: ${props => props.width ? props.width : '100%'};
     border-radius: 8px;
     background: var(--primary-dark);
     color: var(--text-btn-login);
