@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {Container} from './styles'
 
@@ -8,6 +8,9 @@ import Button from '../../components/Button'
 import {FaArrowLeft} from 'react-icons/fa'
 
 const FormForgotPassword = ({changeForm}) => {
+
+    const [email, setEmail] = useState("")
+
     return (
         <Container>
             <HeaderForm 
@@ -18,7 +21,7 @@ const FormForgotPassword = ({changeForm}) => {
                 <FaArrowLeft/>
                 Voltar
             </span>
-            <Input placeholder = "E-mail"/>
+            <Input placeholder = "E-mail" value = {email} onChange = {(e) => setEmail(e.target.value)}/>
             <Button>
                 Enviar
             </Button>

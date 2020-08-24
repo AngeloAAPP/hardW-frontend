@@ -12,6 +12,10 @@ export const CustomButton = styled.button`
     outline: none;
     transition: opacity 200ms;
 
+    @media(max-width: 800px){
+        font-size: 28px;
+    }
+
     &:hover{
         opacity: 0.9;
     }

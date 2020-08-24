@@ -9,6 +9,11 @@ export const CustomInput = styled.input`
     outline: none;
     margin-bottom: 5px;
     color: var(--black-light);
+
+    @media(max-width: 800px){
+        font-size: 16px;
+        margin-bottom: 3px;
+    }
     
     
     &::placeholder{
