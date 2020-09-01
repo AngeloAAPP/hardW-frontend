@@ -8,6 +8,8 @@ import FormUserData from '../../components/FormUserData'
 import FormUserAddress from '../../components/FormUserAddress'
 import FormUserImage from '../../components/FormUserImage'
 
+import FormRegisterProvider from '../../contexts/FormRegister'
+
 const Login = () => {
 
     const [form, setForm] = useState("FormUserData")
@@ -20,6 +22,7 @@ const Login = () => {
                 </Link>
             </LeftSide>
             <RightSide>
+                <FormRegisterProvider>
                 {
                     form === 'FormUserAddress' ?
                         <FormUserAddress changeForm = {setForm}/> 
@@ -28,6 +31,7 @@ const Login = () => {
                             form === 'FormUserImage' ? <FormUserImage changeForm = {setForm}/> : <FormUserData changeForm = {setForm}/>
                         )
                 }
+                </FormRegisterProvider>
             </RightSide>
         </Container>
     )

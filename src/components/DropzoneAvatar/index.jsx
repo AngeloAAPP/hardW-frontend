@@ -4,8 +4,8 @@ import {FaUser, FaPlus} from 'react-icons/fa'
 
 import {Dropzone} from './styles'
 
-const DropzoneAvatar = ({setImage}) => {
-    const [fileUrl, setFileUrl] = useState('')
+const DropzoneAvatar = ({setImage, image}) => {
+    const [fileUrl, setFileUrl] = useState(image)
   const onDrop = useCallback(acceptedFiles => {
     try{
     const file = acceptedFiles[0];

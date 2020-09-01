@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import {Container} from './styles'
 
@@ -6,14 +6,35 @@ import HeaderForm from '../../components/HeaderForm'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import {FaArrowLeft} from 'react-icons/fa'
+import {useFormRegister} from '../../contexts/FormRegister'
 
 const FormUserAddress = ({changeForm}) => {
 
-    const [zipcode, setZipcode] = useState("")
-    const [street, setStreet] = useState("")
-    const [neighbourhood, setNeighbourhood] = useState("")
-    const [uf, setUF] = useState("")
-    const [city, setCity] = useState("")
+    const {
+        zipcode,
+        setZipcode,
+        street,
+        setStreet,
+        neighbourhood,
+        setNeighbourhood,
+        uf,
+        setUF,
+        city,
+        setCity
+    } = useFormRegister()
+
+    async function findAddressbyZipcode(){
+        const response = await fetch(`https://viacep.com.br/ws/${zipcode}/json/`)
+        if(response)
+        {
+            const {logradouro, bairro, localidade,uf} = await response.json()
+            
+            setStreet(logradouro)
+            setNeighbourhood(bairro)
+            setCity(localidade)
+            setUF(uf)
+        }
+    }
 
     return (
         <Container>
@@ -25,7 +46,7 @@ const FormUserAddress = ({changeForm}) => {
                 <FaArrowLeft/>
                 Voltar
             </span>
-            <Input placeholder = "Cep" value = {zipcode} onChange = {(e) => setZipcode(e.target.value)}/>
+            <Input placeholder = "Cep" value = {zipcode} onBlur = {findAddressbyZipcode} onChange = {(e) => setZipcode(e.target.value)}/>
             <Input placeholder = "Rua" value = {street} onChange = {(e) => setStreet(e.target.value)}/>
             <Input placeholder = "Bairro" value = {neighbourhood} onChange = {(e) => setNeighbourhood(e.target.value)}/>
             <Input placeholder = "Estado" value = {uf} onChange = {(e) => setUF(e.target.value)}/>
