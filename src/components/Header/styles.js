@@ -12,7 +12,7 @@ export const Content = styled.div`
     width: 100%;
     max-width: 1700px;
     padding: 0 60px;
-    margin: 0 auto;
+    margin: 0 auto;    
 
     @media(max-width: 800px){
         padding: 0 10px;
@@ -40,6 +40,25 @@ export const Nav = styled.nav`
     ul{
         display: flex;
         align-items: center;
+        position: relative;
+
+        .close{
+                display: none;
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                color: var(--black);
+                cursor: pointer;
+                background: none;
+                font-size: 16px;
+                padding: 10px;
+                color: var(--primary);
+
+                @media(max-width: 800px)
+                {
+                    display: block;
+                }
+        }
 
         li{
             position: relative;
@@ -101,6 +120,7 @@ export const Nav = styled.nav`
                     @media(max-width: 800px){
                         position: initial;
                         display: flex;
+                        box-shadow: none;
                     }
 
                     li, a, strong{
@@ -211,17 +231,17 @@ export const Nav = styled.nav`
 
         @media(max-width: 800px){
             position: fixed;
-            top: 90px;
+            top: 0;
             right: 0;
             width: 250px;
-            height: calc(100% - 90px);
+            height: 100vh;
             background: var(--white);
             display: ${props => props.mobile ? 'none' : 'flex'};
             animation: right 500ms;
             flex-direction: column;
-            z-index: 2;
-            padding: 20px 0;
+            padding: 120px 0 20px 0;
             align-items: center;
+            z-index: 2;
             
             
             li{

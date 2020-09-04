@@ -72,4 +72,9 @@ export const Container = styled.form`
             background: ${props => props.locked? '' : 'var(--primary-dark)'};
         }
     }
+
+    @media(max-width: 800px){
+        padding: 20px;
+        width: 100%;
+    }
 `

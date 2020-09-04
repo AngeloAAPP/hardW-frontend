@@ -10,6 +10,7 @@ const Profile = () => {
         <Container>
             <Header/>
             <Grid>
+                <span className = "suggestion">Arraste para a esquerda para mais opções</span>
                 <Menu>
                     <ul>
                         <li className = "active">Dados cadastrais</li>

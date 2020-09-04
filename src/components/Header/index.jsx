@@ -10,7 +10,7 @@ import Hamburguer from '../Hamburguer'
 const Header = () => {
 
     const [mobile, setMobile] = useState(true)
-    const [isAuthenticaded, setIsAuthenticated] = useState(true)
+    const [isAuthenticaded, setIsAuthenticated] = useState(false)
     const [hiddenMenu, setHiddenMenu] = useState(true)
 
     return (
@@ -25,6 +25,7 @@ const Header = () => {
                         isAuthenticaded ?
                         (
                             <ul>
+                                <button className = "close" onClick={() => setMobile(!mobile)}>X</button>
                                 <li>
                                     <Link to="/" className="btn">Anunciar</Link>
                                 </li>
@@ -44,6 +45,7 @@ const Header = () => {
                         ) :
                         (
                             <ul>
+                                <button className = "close" onClick={() => setMobile(!mobile)}>X</button>
                                 <li>
                                     <Link to="/register">CADASTRE-SE</Link>
                                 </li>
