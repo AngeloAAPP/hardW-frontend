@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {Container} from './styles'
 
-import Dropzone from '../DropzoneAvatar'
-import Image from '../../assets/perf.jpg'
+import Dropzone from '../../DropzoneAvatar'
+import Image from '../../../assets/perf.jpg'
 
 import {FaSmile, FaEdit} from 'react-icons/fa'
-import Input from '../Input'
-import Button from '../Button'
+import Input from '../../Input'
+import Button from '../../Button'
 
 const FormEditUser = () => {
 
@@ -14,7 +14,10 @@ const FormEditUser = () => {
 
     return (
         <Container locked = {locked}>
-            <FaEdit className = "edit" title = "Editar" onClick = {() => setLocked(false)}/>
+            <div className = "title">
+                <h1>Dados cadastrais</h1>
+                <FaEdit className = "edit" title = "Editar" onClick = {() => setLocked(false)}/>
+            </div>
             <Dropzone image = {Image}/>
             <span className = "about">Na HardW desde julho de 2020
                 <FaSmile/>

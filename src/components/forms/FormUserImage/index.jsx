@@ -2,10 +2,10 @@ import React from 'react'
 
 import {Container} from './styles'
 
-import HeaderForm from '../../components/HeaderForm'
-import Button from '../../components/Button'
+import HeaderForm from '../HeaderForm'
+import Button from '../../Button'
 import {FaArrowLeft} from 'react-icons/fa'
-import Dropzone from '../../components/DropzoneAvatar'
+import Dropzone from '../../DropzoneAvatar'
 
 const FormUserImage = ({changeForm}) => {
     return (

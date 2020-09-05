@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 
 import {Container, LeftSide, RightSide} from './styles'
 import Logo from '../../assets/logo.png'
-import FormLogin from '../../components/FormLogin'
-import FormForgotPassword from '../../components/FormForgotPassword'
+import FormLogin from '../../components/forms/FormLogin'
+import FormForgotPassword from '../../components/forms/FormForgotPassword'
 
 const Login = () => {
 

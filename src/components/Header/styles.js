@@ -99,7 +99,7 @@ export const Nav = styled.nav`
                     border-radius: 8px;
                     animation: smallRight 500ms;
                     z-index: 10;
-                    box-shadow: 1px 1px 10px 1px var(--black-light);
+                    border: 1px solid var(--primary);
 
                     &::before{
                         content: '';
@@ -110,6 +110,8 @@ export const Nav = styled.nav`
                         top: -8px;
                         transform: rotate(45deg);
                         border-radius: 25%;
+                        border-top: 1px solid var(--primary);
+                        border-left: 1px solid var(--primary);
 
 
                         @media(max-width: 800px){
@@ -120,7 +122,7 @@ export const Nav = styled.nav`
                     @media(max-width: 800px){
                         position: initial;
                         display: flex;
-                        box-shadow: none;
+                        border: none;
                     }
 
                     li, a, strong{

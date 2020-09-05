@@ -10,7 +10,7 @@ import Hamburguer from '../Hamburguer'
 const Header = () => {
 
     const [mobile, setMobile] = useState(true)
-    const [isAuthenticaded, setIsAuthenticated] = useState(false)
+    const [isAuthenticaded, setIsAuthenticated] = useState(true)
     const [hiddenMenu, setHiddenMenu] = useState(true)
 
     return (

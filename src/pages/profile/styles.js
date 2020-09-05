@@ -10,17 +10,12 @@ export const Grid = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     margin-top: 50px;
-    max-width: 1700px;
+    max-width: 1300px;
     margin: 40px auto 0px auto;
     padding: 20px;
 
     @media(max-width: 800px){
         grid-template-columns: 1fr;
-    }
-
-    h1{
-        background: red;
-        width: max-content;
     }
 
     .suggestion{

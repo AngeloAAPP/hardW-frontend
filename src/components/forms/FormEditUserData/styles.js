@@ -11,9 +11,20 @@ export const Container = styled.form`
     border-radius: 8px;
     position: relative;
 
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h1{
+            color: var(--black-light);
+            font-size: 24px;
+        }
+    }
+
     .edit{
         position: absolute;
-        top: 15px;
         right: 15px;
         width: 30px;
         height: 30px;

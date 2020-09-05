@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 
 import {Container} from './styles'
 
-import HeaderForm from '../../components/HeaderForm'
-import Input from '../../components/Input'
-import Button from '../../components/Button'
+import HeaderForm from '../HeaderForm'
+import Input from '../../Input'
+import Button from '../../Button'
 import {FaArrowLeft} from 'react-icons/fa'
 
 const FormForgotPassword = ({changeForm}) => {

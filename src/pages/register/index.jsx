@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 import {Container, LeftSide, RightSide} from './styles'
 import Logo from '../../assets/logo.png'
 
-import FormUserData from '../../components/FormUserData'
-import FormUserAddress from '../../components/FormUserAddress'
-import FormUserImage from '../../components/FormUserImage'
+import FormUserData from '../../components/forms/FormUserData'
+import FormUserAddress from '../../components/forms/FormUserAddress'
+import FormUserImage from '../../components/forms/FormUserImage'
 
 import FormRegisterProvider from '../../contexts/FormRegister'
 

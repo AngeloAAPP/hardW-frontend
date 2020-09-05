@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom'
 
 import {Container} from './styles'
 
-import HeaderForm from '../../components/HeaderForm'
-import Input from '../../components/Input'
-import Button from '../../components/Button'
+import HeaderForm from '../HeaderForm'
+import Input from '../../Input'
+import Button from '../../Button'
 
-import {useFormRegister} from '../../contexts/FormRegister'
+import {useFormRegister} from '../../../contexts/FormRegister'
 
 const FormLogin = ({changeForm}) => {
 
