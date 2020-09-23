@@ -5,6 +5,7 @@ import Header from '../../components/Header'
 import FormEditUserData from '../../components/forms/FormEditUserData'
 import FormEditUserAddress from '../../components/forms/FormEditUserAddress'
 import FormEditPassword from '../../components/forms/FormEditPassword'
+import FormDeleteAccount from '../../components/forms/FormDeleteAccount'
 
 
 const Profile = () => {
@@ -22,12 +23,13 @@ const Profile = () => {
                         <li className = {form === "FormEditUserAddress" ? "active" : ""} onClick = {() => setForm("FormEditUserAddress")}>Endereço</li>
                         <li>Meus anúncios</li>
                         <li className = {form === "FormEditPassword" ? "active" : ""} onClick = {() => setForm("FormEditPassword")}>Alterar senha</li>
-                        <li>Excluir minha conta</li>
+                        <li className = {form === "FormDeleteAccount" ? "active" : ""} onClick = {() => setForm("FormDeleteAccount")}>Excluir minha conta</li>
                     </ul>
                 </Menu>
                 {form === "FormEditUserData" && <FormEditUserData/>}
                 {form === "FormEditUserAddress" && <FormEditUserAddress/>}     
-                {form === "FormEditPassword" && <FormEditPassword/>}    
+                {form === "FormEditPassword" && <FormEditPassword/>}
+                {form === "FormDeleteAccount" && <FormDeleteAccount/>}       
             </Grid>
         </Container>
     )

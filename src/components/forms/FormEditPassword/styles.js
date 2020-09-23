@@ -10,6 +10,7 @@ export const Container = styled.form`
     padding: 20px 50px;
     border-radius: 8px;
     position: relative;
+    width: min(550px, 100%);
 
     .title{
         display: flex;

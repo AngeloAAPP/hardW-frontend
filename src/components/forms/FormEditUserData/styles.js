@@ -10,6 +10,7 @@ export const Container = styled.form`
     padding: 20px 50px;
     border-radius: 8px;
     position: relative;
+    width: min(550px, 100%);
 
     .title{
         display: flex;
@@ -47,7 +48,7 @@ export const Container = styled.form`
         margin-bottom: 10px;
 
         svg{
-            color: var(--primary);
+            fill: var(--primary);
             width: 25px;
             height: 25px;
             margin-left: 10px;

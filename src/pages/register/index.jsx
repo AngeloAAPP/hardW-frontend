@@ -23,14 +23,9 @@ const Login = () => {
             </LeftSide>
             <RightSide>
                 <FormRegisterProvider>
-                {
-                    form === 'FormUserAddress' ?
-                        <FormUserAddress changeForm = {setForm}/> 
-                        :
-                        (
-                            form === 'FormUserImage' ? <FormUserImage changeForm = {setForm}/> : <FormUserData changeForm = {setForm}/>
-                        )
-                }
+                    {form === 'FormUserData' && <FormUserData changeForm = {setForm}/>}
+                    {form === 'FormUserAddress' && <FormUserAddress changeForm = {setForm}/>}
+                    {form === 'FormUserImage' && <FormUserImage changeForm = {setForm}/>}
                 </FormRegisterProvider>
             </RightSide>
         </Container>

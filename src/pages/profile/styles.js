@@ -50,18 +50,11 @@ export const Menu = styled.nav`
                 white-space: nowrap;
             }
 
-            &:hover,
+            
             &.active
             {
                 background: var(--primary);
                 color: var(--white);
-            }
-
-            @media(max-width: 800px){
-                &:hover{
-                    background: var(--white);
-                    color: var(--black);
-                }
             }
 
             &:first-child{

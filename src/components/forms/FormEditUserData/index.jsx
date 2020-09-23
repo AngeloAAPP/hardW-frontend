@@ -4,7 +4,10 @@ import {Container} from './styles'
 import Dropzone from '../../DropzoneAvatar'
 import Image from '../../../assets/perf.jpg'
 
-import {FaSmile, FaEdit} from 'react-icons/fa'
+import {ReactSVG} from 'react-svg'
+
+import {FaEdit} from 'react-icons/fa'
+import Happy from '../../../assets/icons/happy.svg'
 import Input from '../../Input'
 import Button from '../../Button'
 
@@ -20,7 +23,7 @@ const FormEditUser = () => {
             </div>
             <Dropzone image = {Image}/>
             <span className = "about">Na HardW desde julho de 2020
-                <FaSmile/>
+                <ReactSVG src = {Happy}/>
             </span>
             <Input placeholder = "Nome" disabled = {locked}/>
             <Input placeholder = "Último nome" disabled = {locked}/>
