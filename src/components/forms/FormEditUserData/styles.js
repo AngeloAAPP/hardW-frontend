@@ -11,6 +11,7 @@ export const Container = styled.form`
     border-radius: 8px;
     position: relative;
     width: min(550px, 100%);
+    margin-bottom: 20px;
 
     .title{
         display: flex;

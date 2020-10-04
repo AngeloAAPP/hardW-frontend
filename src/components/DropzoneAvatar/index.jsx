@@ -6,6 +6,7 @@ import {Dropzone} from './styles'
 
 const DropzoneAvatar = ({setImage, image}) => {
     const [fileUrl, setFileUrl] = useState(image)
+    
   const onDrop = useCallback(acceptedFiles => {
     try{
     const file = acceptedFiles[0];
