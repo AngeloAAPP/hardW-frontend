@@ -15,6 +15,26 @@ import styled from 'styled-components'
     transition: border .24s ease-in-out;
     min-height: 300px;
 
+    .dropzone{
+
+        p.default{
+            display: block;
+
+            @media(max-width: 800px){
+                display: none;   
+            }
+        }
+
+        p.mobile{
+            display: none;
+
+            @media(max-width: 800px){
+                display: block;   
+            }
+        }
+    }
+
+
     h1{
         color: var(--black);
         margin-bottom: 5px;
@@ -34,14 +54,21 @@ import styled from 'styled-components'
         .images{
             display: flex;
             justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
         }
     }
 
     img{
         max-width: 33%;
         margin-right: 8px;
+        margin-top: 8px;
 
         border: 2px solid var(--primary);
         border-radius: 8px;
+
+        @media(max-width: 800px){
+            max-height: 80px;        
+        }
     }
   `;

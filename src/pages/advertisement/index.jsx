@@ -6,18 +6,20 @@ import FormCreateAdvertisement from '../../components/forms/FormCreateAdvertisem
 
 const Advertisement = () => {
     return (
-        <Container>
-            <Header/>
-            <Content>
-                <MultipleDropzone/>
-                <p>* Imagens não são obrigatórias, mas é uma boa idéia adicionálas, pois aumenta a chance de encontrarmos um comprador</p>
-            </Content>
-            <Form>
-                <FormContent>
-                    <FormCreateAdvertisement/>
-                </FormContent>
-            </Form>
-        </Container>
+        <>
+        <Header/>
+            <Container>
+                <Content>
+                    <MultipleDropzone/>
+                    <p>* Imagens não são obrigatórias, mas é uma boa idéia adicionálas, pois aumenta a chance de encontrarmos um comprador</p>
+                </Content>
+                <Form>
+                    <FormContent>
+                        <FormCreateAdvertisement/>
+                    </FormContent>
+                </Form>
+            </Container>
+        </>
     )
 }
 

@@ -22,9 +22,10 @@ const MultipleDropzone = ({props}) => {
     return (
       <Container id = "MultipleDropzone">
         <h1>Imagens</h1>
-        <div className = "input" {...getRootProps({className: 'dropzone'})}>
+        <div {...getRootProps({className: 'dropzone'})}>
           <input {...getInputProps()} />
-          <p>Clique aqui ou arraste e solte neste campo até 6 imagens</p>
+          <p className = "default">Clique aqui ou arraste e solte neste campo até 6 imagens</p>
+          <p className = "mobile">Clique aqui para selecionar até 6 imagens</p>
         </div>
         <aside>
           {images.length > 0 && <h4>Imagens selecionadas</h4>}

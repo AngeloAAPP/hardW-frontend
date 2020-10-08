@@ -6,7 +6,7 @@ import Button from '../../Button'
 
 const FormCreateAdvertisement = () => {
 
-    const [selectedCategorie, setSelectedCategorie] = useState("1")
+    const [selectedCategorie, setSelectedCategorie] = useState("5")
     const [selectedSubCategorie, setSelectedSubCategorie] = useState("")
 
     const categories = [
