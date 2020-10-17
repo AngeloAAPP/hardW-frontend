@@ -21,10 +21,14 @@ export const Container = styled.form`
         }
     }
 
-    input, button{
+    input, button, select{
         @media(max-width: 800px) {
             height: 60px;
         }
+    }
+
+    select{
+        background-color: var(--white);
     }
 
     p{

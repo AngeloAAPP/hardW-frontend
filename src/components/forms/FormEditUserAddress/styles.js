@@ -39,7 +39,7 @@ export const Container = styled.form`
         }
     }
 
-    input{
+    input, select{
         background: var(--gray-light);
         height: 70px;
         color: ${props => props.locked ? 'var(--placeholder-input-white)' : 'var(--black-light)'}
