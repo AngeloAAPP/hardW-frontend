@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CustomCombobox = styled.select`
      width: ${props => props.width ? props.width : '100%'};
     height: ${props => props.height ? props.height : '90px'};
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     font-size: 20px;
     outline: none;

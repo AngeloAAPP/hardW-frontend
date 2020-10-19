@@ -27,7 +27,7 @@ const Header = () => {
                             <ul>
                                 <button className = "close" onClick={() => setMobile(!mobile)}>X</button>
                                 <li>
-                                    <Link to="/" className="btn">Anunciar</Link>
+                                    <Link to="/newAdvertimesent" className="btn">Anunciar</Link>
                                 </li>
                                 <li className="username"> <label>Angelo Scolfaro</label> </li>
                                 <li className="avatar-menu">
