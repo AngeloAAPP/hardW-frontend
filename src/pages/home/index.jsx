@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Container, FindAdvertsLocation, Main} from './styles'
+import {Container, FindAdvertsLocation, Main, Filters, Adverts} from './styles'
 import {FaFilter} from 'react-icons/fa'
 
 import Header from '../../components/Header'
@@ -8,6 +8,8 @@ import ComboboxUF from '../../components/ComboboxUF'
 import ComboboxCity from '../../components/ComboboxCity'
 
 import Button from '../../components/Button'
+
+import AdvertisementCard from '../../components/AdvertisementCard'
 
 
 const Home = () => {
@@ -139,7 +141,7 @@ const Home = () => {
                 </div>
             </FindAdvertsLocation>
             <Main>
-                <section className = "filters">
+                <Filters>
                     <div className="title">
                       <FaFilter/>
                       <h2> Filtros</h2>
@@ -192,10 +194,40 @@ const Home = () => {
                         <Button type = "button">Filtrar</Button>
                     </form>
 
-                </section>
-                <section>
+                </Filters>
+                <Adverts>
+                    <AdvertisementCard title = "Placa mãe para intel socket 1155 "
+                      image = "https://http2.mlstatic.com/D_NQ_NP_838032-MLB42699520512_072020-W.jpg"
+                       price = "R$ 120,00"
+                      timestamp = "Publicado em: 07/08/2020 16:20"
+                      neighbourhood = "Vila Lemos"
+                      city = "Campinas"
+                      uf = "SP"/>
 
-                </section>
+<AdvertisementCard title = "Placa mãe "
+                image = "https://img.olx.com.br/images/15/156064801212382.jpg"
+                price = "R$ 120,00"
+                timestamp = "Publicado em: 07/08/2020 16:20"
+                neighbourhood = "Vila Lemos"
+                city = "Campinas"
+                uf = "SP"/>
+
+<AdvertisementCard title = "Placa mãe para intel socket 1155 "
+                      image = "https://s.glbimg.com/po/tt/f/original/2012/02/27/memory_module_ddram_20-03-2006.jpg"
+                       price = "R$ 120,00"
+                      timestamp = "Publicado em: 07/08/2020 16:20"/>
+
+<AdvertisementCard title = "Placa mãe para intel socket 1155 "
+                      image = "https://photos.enjoei.com.br/public/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy83ODY1OTkwLzAxNDVkOWM5OGM2MTExODE1NTIxODM2ODI4YzhhMGI4LmpwZw"
+                       price = "R$ 120,00"
+                      timestamp = "Publicado em: 07/08/2020 16:20"/>
+
+<AdvertisementCard title = "Placa mãe para intel socket 1155 "
+                      image = "https://http2.mlstatic.com/D_NQ_NP_838032-MLB42699520512_072020-W.jpg"
+                       price = "R$ 120,00"
+                      timestamp = "Publicado em: 07/08/2020 16:20"/>
+              
+                </Adverts>
             </Main>
         </Container>
     )

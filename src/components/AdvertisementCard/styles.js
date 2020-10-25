@@ -2,10 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     background: var(--white);
-    width: 100%;
     padding: 15px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    
 
     @media(max-width: 800px){
         padding: 8px;
@@ -13,6 +12,8 @@ export const Container = styled.div`
 
     .content{
         display: flex;
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 15px;
 
         @media(max-width: 800px){
             flex-direction: column;
@@ -29,7 +30,7 @@ export const Container = styled.div`
 
 
             @media(max-width: 800px){
-                max-width: 300px;
+                width: 300px;
             }
 
             img{
@@ -46,7 +47,7 @@ export const Container = styled.div`
             width: 100%;
 
             h1{
-                font-weight: 500;
+                font-weight: 700;
                 font-size: 16px;
             }
 
@@ -69,55 +70,15 @@ export const Container = styled.div`
                 }
                 
             }
-        }
-    }
 
-    .footer{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-
-        @media(max-width: 800px){
-            flex-direction: column;
-            margin-top: 10px;
-        }
-
-        span{
-            color: var(--label-advert);
-            margin-left: 2px;
-            font-size: 12px;
-
-            @media(max-width: 800px){
-                align-self: flex-start;
-                margin-left: 5px;
-            }
-        }
-
-        .buttons{
-            display: flex;
-
-            @media(max-width: 800px){
+            span{
+                display: block;
                 margin-top: 10px;
-            }
-
-            button{
-                height: auto;
-                width: auto;
-                font-size: 18px;
-                padding: 5px 15px;
-                font-weight: 300;
-                background: var(--primary);
-
-                &:first-child{
-                    background: transparent;
-                    color: var(--black);
-
-                    &:hover{
-                        text-decoration: underline;
-                    }
-                }
+                color: var(--label-advert);
+                font-size: 14px;
             }
         }
     }
+
+    
 `

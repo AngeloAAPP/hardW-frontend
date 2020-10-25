@@ -47,14 +47,16 @@ export const Main = styled.main`
     padding: 20px;
     display: grid;
     grid-template-columns: 300px 1fr;
+    gap: 10px;
+`
 
-
-.filters{
+export const Filters = styled.section`
 
     background: var(--white);
     border: 2px solid var(--primary);
     border-radius: 8px;
     padding: 15px;
+    align-self: flex-start;
 
     .title{
         display: flex;
@@ -103,7 +105,10 @@ export const Main = styled.main`
         margin: 0 auto;
         margin-top: 15px;
     }
-}
+`
 
-
+export const Adverts = styled.section`
+    background: var(--white);
+    align-self: flex-start;
+    border-radius: 8px;
 `
