@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Container, FindAdvertsLocation, Main, Filters, Adverts} from './styles'
 import {FaFilter} from 'react-icons/fa'
 
@@ -11,122 +11,25 @@ import Button from '../../components/Button'
 
 import AdvertisementCard from '../../components/AdvertisementCard'
 
+import api from '../../services/api'
+
 
 const Home = () => {
 
     
-    
+    const [categories, setCategories] = useState([])
     const [uf, setUF] = useState("")
     const [city, setCity] = useState("")
 
-    const categories = [
-        {
-          "id": 1,
-          "name": "Placa mãe",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449853/categories/placa-mae_yk7h3p.svg",
-          "subcategories": [
-            {
-              "id": 1,
-              "name": "Intel",
-              "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595452712/subcategories/intel_unvydo.svg"
-            },
-            {
-              "id": 2,
-              "name": "AMD",
-              "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595452712/subcategories/amd_kon0b9.svg"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "name": "Processador",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449853/categories/processor_en4ppf.svg",
-          "subcategories": [
-            {
-              "id": 1,
-              "name": "Intel",
-              "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595452712/subcategories/intel_unvydo.svg"
-            },
-            {
-              "id": 2,
-              "name": "AMD",
-              "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595452712/subcategories/amd_kon0b9.svg"
-            }
-          ]
-        },
-        {
-          "id": 5,
-          "name": "Placa de vídeo",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449855/categories/vga_b2oml4.svg",
-          "subcategories": [
-            {
-              "id": 2,
-              "name": "AMD",
-              "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595452712/subcategories/amd_kon0b9.svg"
-            },
-            {
-              "id": 3,
-              "name": "Nvidia",
-              "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595453046/subcategories/nvidia_aokkob.svg"
-            }
-          ]
-        },
-        {
-          "id": 10,
-          "name": "Outros",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595451847/categories/outros_lbonzy.svg",
-          "subcategories": [
-            
-          ]
-        },
-        {
-          "id": 8,
-          "name": "Refrigeração",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449853/categories/cooler_jxvunz.svg",
-          "subcategories": [
-            
-          ]
-        },
-        {
-          "id": 6,
-          "name": "Fonte de alimentação",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449853/categories/powersupply_azuiaz.svg",
-          "subcategories": [
-            
-          ]
-        },
-        {
-          "id": 4,
-          "name": "Drives (HD, SSD, DVD)",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449853/categories/drives_yjoux4.svg",
-          "subcategories": [
-            
-          ]
-        },
-        {
-          "id": 3,
-          "name": "Memória ram",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449855/categories/ram_dgjyig.svg",
-          "subcategories": [
-            
-          ]
-        },
-        {
-          "id": 9,
-          "name": "Periféricos",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595451356/categories/perifericos_r7ff2o.svg",
-          "subcategories": [
-            
-          ]
-        },
-        {
-          "id": 7,
-          "name": "Gabinete",
-          "imageUrl": "https://res.cloudinary.com/hardw/image/upload/v1595449853/categories/gabinete_lhzpun.svg",
-          "subcategories": [
-            
-          ]
-        }]
+    useEffect(() => {
+
+      async function getCategories(){
+        const categories = await api.get('/categories')
+        setCategories(categories.data)
+      }
+ 
+      getCategories()
+    }, [])
 
     return (
         <Container>

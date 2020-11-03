@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Combobox from '../Combobox'
+import axios from 'axios'
 
 const ComboboxCity = ({uf, city, setCity, ...rest}) => {
 
@@ -7,10 +8,9 @@ const ComboboxCity = ({uf, city, setCity, ...rest}) => {
 
     useEffect(() => {
 
-        fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`)
-            .then(response => response.json())
-            .then(data => setCities(data))
-            
+        axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`)
+            .then(response => setCities(response.data))
+    
     }, [uf])
 
     return (
