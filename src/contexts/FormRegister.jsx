@@ -6,6 +6,7 @@ const FormRegister = ({children}) => {
 
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
+    const [whatsapp, setWhatsapp] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [zipcode, setZipcode] = useState("")
@@ -19,6 +20,7 @@ const FormRegister = ({children}) => {
         <FormContext.Provider value = {{
             name, setName,
             lastName, setLastName,
+            whatsapp, setWhatsapp,
             email, setEmail,
             password, setPassword,
             zipcode, setZipcode,
@@ -36,6 +38,7 @@ export function useFormRegister(){
     const {
         name, setName,
         lastName, setLastName,
+        whatsapp, setWhatsapp,
         email, setEmail,
         password, setPassword,
         zipcode, setZipcode,
@@ -48,6 +51,7 @@ export function useFormRegister(){
     return {
         name, setName,
         lastName, setLastName,
+        whatsapp, setWhatsapp,
         email, setEmail,
         password, setPassword,
         zipcode, setZipcode,

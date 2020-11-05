@@ -1,11 +1,10 @@
-import React, {useCallback, useState} from 'react'
+import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {FaUser, FaPlus} from 'react-icons/fa'
 
 import {Dropzone} from './styles'
 
-const DropzoneAvatar = ({setImage, image}) => {
-    const [fileUrl, setFileUrl] = useState(image)
+const DropzoneAvatar = ({setImage, fileUrl, setFileUrl}) => {
     
   const onDrop = useCallback(acceptedFiles => {
     try{
@@ -14,8 +13,10 @@ const DropzoneAvatar = ({setImage, image}) => {
     setFileUrl(URL.createObjectURL(file))
     setImage(file)
     }
-    catch(err){return}
-  }, [setImage])
+    catch(err){
+      console.log("erro: ", err) 
+      return}
+  }, [setImage, setFileUrl])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, accept: 'image/*'})
 
   return (

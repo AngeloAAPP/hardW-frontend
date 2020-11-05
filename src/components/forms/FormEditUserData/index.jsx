@@ -15,13 +15,16 @@ const FormEditUser = () => {
 
     const [locked, setLocked] = useState(true)
 
+    const [fileUrl, setFileUrl] = useState(Image)
+    const [image, setImage] = useState("")
+
     return (
         <div>
             <Container>
                 <div className = "title">
                     <h1>Avatar</h1>
                 </div>
-                <Dropzone image = {Image}/>
+                <Dropzone fileUrl = {fileUrl} setFileUrl = {setFileUrl} setImage = {setImage}/>
                     <span className = "about">Na HardW desde julho de 2020
                         <ReactSVG src = {Happy}/>
                     </span>
