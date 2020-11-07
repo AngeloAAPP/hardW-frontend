@@ -6,6 +6,10 @@ import HeaderForm from '../HeaderForm'
 import Button from '../../Button'
 import {FaArrowLeft} from 'react-icons/fa'
 import Dropzone from '../../DropzoneAvatar'
+import {css} from '@emotion/core'
+import LoadingAnimation from 'react-spinners/SyncLoader'
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 import {useFormRegister} from '../../../contexts/FormRegister'
 import api from '../../../services/api'
@@ -15,6 +19,7 @@ const FormUserImage = ({changeForm}) => {
     const {name, lastName, email, whatsapp, password, zipcode, street, neighbourhood, uf, city} = useFormRegister()
     const [fileUrl, setFileUrl] = useState("")
     const [image, setImage] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const register = async() => {
         const data = new FormData()
@@ -31,19 +36,22 @@ const FormUserImage = ({changeForm}) => {
         data.append("city", city)
         data.append("image", image)
 
+        setLoading(true)
+
         try {
             const response = await api.post('/users', data)
-            console.log(response.data)
             alert("sucesso")
         } catch (err) {
-            console.log(err.response.data)
+            toast.error(err.response.data.error)
         }
+
+        setLoading(false)
         
         
     }
 
     return (
-        <Container>
+            <Container>
             <HeaderForm 
                 title = "Cadastro de usuário"
                 description = "Deseja adicionar uma imagem?"
@@ -53,9 +61,19 @@ const FormUserImage = ({changeForm}) => {
                 Voltar
             </span>
             <Dropzone fileUrl = {fileUrl} setFileUrl = {setFileUrl} setImage = {setImage}/>
-            <Button onClick = {register}>
-                Cadastrar
+            <Button onClick = {register} disabled = {loading}>
+                {loading ? <div className="sweet-loading">
+                    <LoadingAnimation
+                        css={css`
+                        width: 100%;
+                        `}
+                        color={"white"}
+                        loading={loading}
+
+                    />
+                </div> : "Cadastrar"}
             </Button>
+            <ToastContainer/>
         </Container>
     )
 }

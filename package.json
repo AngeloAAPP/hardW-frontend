@@ -14,7 +14,9 @@
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-spinners": "^0.9.0",
     "react-svg": "^11.0.38",
+    "react-toastify": "^6.1.0",
     "styled-components": "^5.1.1"
   },
   "scripts": {
