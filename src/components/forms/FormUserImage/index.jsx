@@ -42,7 +42,7 @@ const FormUserImage = ({changeForm}) => {
             const response = await api.post('/users', data)
             alert("sucesso")
         } catch (err) {
-            toast.error(err.response.data.error)
+            toast.error(err.response.data.message)
         }
 
         setLoading(false)
