@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 
 import Logo from '../../assets/logo.png'
 import Hamburguer from '../Hamburguer'
+import {useAuth} from '../../contexts/Auth'
 
 
 
 const Header = () => {
 
     const [mobile, setMobile] = useState(true)
-    const [isAuthenticaded, setIsAuthenticated] = useState(true)
     const [hiddenMenu, setHiddenMenu] = useState(true)
 
+    const {authenticated} = useAuth()
     return (
         <Container>
             <Content>
@@ -22,7 +23,7 @@ const Header = () => {
                 <Nav mobile={mobile} hiddenMenu={hiddenMenu}>
                     <Hamburguer onClick={() => setMobile(!mobile)} />
                     {
-                        isAuthenticaded ?
+                        authenticated ?
                         (
                             <ul>
                                 <button className = "close" onClick={() => setMobile(!mobile)}>X</button>

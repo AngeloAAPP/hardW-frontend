@@ -59,7 +59,7 @@ const Home = () => {
                                     <label htmlFor="all">Todas</label>
                                 </div>
                                 {categories.map(category => 
-                                    <div className = "option">
+                                    <div key = {category.name} className = "option">
                                         <input type="radio" name="category" id={category.name} value = {category.id}/>
                                         <label htmlFor={category.name}>{category.name}</label>
                                     </div>)

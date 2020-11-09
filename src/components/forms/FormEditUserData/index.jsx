@@ -24,7 +24,7 @@ const FormEditUser = () => {
                 <div className = "title">
                     <h1>Avatar</h1>
                 </div>
-                <Dropzone fileUrl = {fileUrl} setFileUrl = {setFileUrl} setImage = {setImage}/>
+                <Dropzone fileUrl = {fileUrl} setFileUrl = {setFileUrl} setImage = {setImage} image = {image}/>
                     <span className = "about">Na HardW desde julho de 2020
                         <ReactSVG src = {Happy}/>
                     </span>

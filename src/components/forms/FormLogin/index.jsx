@@ -12,9 +12,7 @@ import LoadingAnimation from 'react-spinners/SyncLoader'
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-import api from '../../../services/api'
 import {useAuth} from '../../../contexts/Auth'
-import {useProfileUser} from '../../../contexts/Profile'
 
 
 const FormLogin = ({changeForm}) => {
@@ -24,36 +22,19 @@ const FormLogin = ({changeForm}) => {
     const [loading, setLoading] = useState(false)
 
     const history = useHistory()
+
     const {signIn} = useAuth()
-    const {setData, setID} = useProfileUser()
+
 
     async function login(){
         setLoading(true)
 
         try {
-            const response = await api.post('/authenticate', {
-                email,
-                password
-            })
-            
-            const {id,name, lastName, whatsapp, avatarUrl} = response.data
-            const {Authorization, Refresh} = response.headers
-
-            const data = {
-                name,
-                lastName,
-                whatsapp,
-                avatarUrl
-            }
-
-            setID(id)
-            setData(data)
-            signIn(Authorization, Refresh)
+            await signIn(email, password)
             setLoading(false)
+            history.push('/')
         } catch (err) {
-            try {
-                toast.error(err.response.data.message)
-            } catch (error) {}
+            toast.error(err.toString())
         }
 
         setLoading(false)
