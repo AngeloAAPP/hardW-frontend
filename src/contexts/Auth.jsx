@@ -48,6 +48,7 @@ const AuthContext = ({children}) => {
 
             localStorage.setItem("authorization", authorization)
             localStorage.setItem("refresh", refresh)
+            localStorage.setItem("id", id)
         } catch (err) {
             throw new Error(err.response.data.message)
         }
@@ -64,13 +65,35 @@ const AuthContext = ({children}) => {
         setAuthenticated(false)
     }
 
+    const refreshAuth = async() => {
+        try {
+            const response = await api.post('/authenticate/refresh', {
+                user: id,           
+            }, {
+                headers: {
+                    'refresh': refresh
+                }
+            })
+
+            const {authorization, refresh: refreshToken} = response.headers
+
+            setToken(authorization)
+            setRefresh(refreshToken)
+
+            localStorage.setItem("authorization", authorization)
+            localStorage.setItem("refresh", refreshToken)
+        } catch (err) {
+            throw new Error(err.response.data.message)
+        }
+    }
+
 
     return (
         <context.Provider value = {{
             authenticated,
             token,
             refresh,
-            signIn, signOut,
+            signIn, signOut, refreshAuth,
             id,
             data,
             
@@ -82,11 +105,11 @@ const AuthContext = ({children}) => {
 
 export function useAuth(){
     const {
-        authenticated, token, refresh, signIn, signOut,  id, data,
+        authenticated, token, refresh, signIn, signOut, refreshAuth,  id, data,
     } = useContext(context)
 
     return {
-        authenticated, token, refresh, signIn, signOut,  id, data
+        authenticated, token, refresh, signIn, signOut, refreshAuth,  id, data
     }
 }
 

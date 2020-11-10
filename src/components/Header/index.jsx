@@ -13,7 +13,7 @@ const Header = () => {
     const [mobile, setMobile] = useState(true)
     const [hiddenMenu, setHiddenMenu] = useState(true)
 
-    const {authenticated} = useAuth()
+    const {authenticated, data} = useAuth()
     return (
         <Container>
             <Content>
@@ -33,9 +33,9 @@ const Header = () => {
                                 <li className="username"> <label>Angelo Scolfaro</label> </li>
                                 <li className="avatar-menu">
                                     <div className="img" onClick={() => setHiddenMenu(!hiddenMenu)}>
-                                        <img src="https://avatars2.githubusercontent.com/u/57161008?s=460&u=5048c9861b89bc25fbd68f6e2ad5abb93f0c1682&v=4" alt="avatar" />
+                                        <img src={data.avatarUrl ? data.avatarUrl : "https://www.cvasolutions.com/wp-content/uploads/2017/03/sem-avatar.jpg"} alt="avatar" />
                                     </div>
-                                    <span>Angelo Scolfaro</span>
+                                    <span>{`${data.name} ${data.lastName}`}</span>
                                     <ul>
                                         <li><Link to = "/profile" className = "radius-top">Editar perfil</Link></li>
                                         <li><Link to = "/login">Meus anúncios</Link></li>
