@@ -1,5 +1,6 @@
 import React, {useState, useContext, createContext, useEffect} from 'react'
 import api from '../services/api'
+import LoadingAnimation from '../components/LoadingApplication'
 
 const context = createContext({})
 
@@ -9,18 +10,65 @@ const AuthContext = ({children}) => {
     const [token, setToken] = useState("")
     const [refresh, setRefresh] = useState("")
     const [id, setID] = useState("")
+    const [loading, setLoading] = useState(false)
 
     //Data = name, lastName, whatsapp, avatarUrl, etc
     const [data, setData] = useState({})
 
     useEffect(() => {
-        const tokenUser = localStorage.getItem("tokenUser")
 
-        if(tokenUser){
-            setAuthenticated(true)
-            setToken(tokenUser)
+        const refreshToken = localStorage.getItem("refresh")
+        const userID = localStorage.getItem("id")
+    
+
+        async function isAuthenticated(){
+            setLoading(true)
+            await getProfileData(refreshToken, userID)
+            setLoading(false)
         }
+
+        if(refreshToken && userID){
+            isAuthenticated()
+        }
+            
     }, [])
+
+    const getProfileData = async(refreshToken, userID) => {
+
+        try {
+            await refreshAuth(refreshToken, userID)
+
+            const tokenStorage = localStorage.getItem('authorization')
+            const response = await api.get('/users/profile', {
+                params: {
+                    userID
+                },
+                headers: {
+                    'authorization': `Bearer ${tokenStorage}`
+                }
+            })
+            
+            const {name, lastName, whatsapp, avatarUrl, adverts, address} = response.data
+
+            const data = {
+                name,
+                lastName,
+                whatsapp,
+                avatarUrl,
+                address,
+                adverts
+            }
+
+            setData(data)
+            setAuthenticated(true)
+        } catch (error) {
+            localStorage.removeItem("authorization")
+            localStorage.removeItem("refresh")
+            localStorage.removeItem("id")
+
+            alert("A sessão expirou. Faça login novamente")
+        }
+    }
 
     const signIn = async (email, password) => {
 
@@ -30,14 +78,16 @@ const AuthContext = ({children}) => {
                 password
             })
             
-            const {id,name, lastName, whatsapp, avatarUrl} = response.data
+            const {id,name, lastName, whatsapp, avatarUrl, adverts, address} = response.data
             const {authorization, refresh} = response.headers
 
             const data = {
                 name,
                 lastName,
                 whatsapp,
-                avatarUrl
+                avatarUrl,
+                address,
+                adverts
             }
 
             setID(id)
@@ -65,15 +115,17 @@ const AuthContext = ({children}) => {
         setAuthenticated(false)
     }
 
-    const refreshAuth = async() => {
+    const refreshAuth = async(refreshStorage = null, idStorage = null) => {
         try {
+
             const response = await api.post('/authenticate/refresh', {
-                user: id,           
+                user: idStorage ? idStorage : id,           
             }, {
                 headers: {
-                    'refresh': refresh
+                    'refresh': refreshStorage ? refreshStorage : refresh
                 }
             })
+
 
             const {authorization, refresh: refreshToken} = response.headers
 
@@ -95,17 +147,16 @@ const AuthContext = ({children}) => {
             refresh,
             signIn, signOut, refreshAuth,
             id,
-            data,
-            
+            data
         }}>
-            {children}
+            {loading ? <LoadingAnimation/> : children}
         </context.Provider>
     )
 }
 
 export function useAuth(){
     const {
-        authenticated, token, refresh, signIn, signOut, refreshAuth,  id, data,
+        authenticated, token, refresh, signIn, signOut, refreshAuth,  id, data
     } = useContext(context)
 
     return {
