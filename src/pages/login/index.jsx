@@ -1,12 +1,19 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 
 import {Container, LeftSide, RightSide} from './styles'
 import Logo from '../../assets/logo.png'
 import FormLogin from '../../components/forms/FormLogin'
 import FormForgotPassword from '../../components/forms/FormForgotPassword'
+import {useAuth} from '../../contexts/Auth'
 
 const Login = () => {
+
+    const history = useHistory()
+    const {authenticated} = useAuth()
+
+    if(authenticated)
+        history.push('/')
 
     const [form, setForm] = useState("Login")
 

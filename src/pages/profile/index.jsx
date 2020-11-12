@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 import {Container ,Grid, Menu} from './styles'
 import Header from '../../components/Header'
@@ -8,10 +9,18 @@ import MyAdverts from '../../components/MyAdverts'
 import FormEditPassword from '../../components/forms/FormEditPassword'
 import FormDeleteAccount from '../../components/forms/FormDeleteAccount'
 
+import {useAuth} from '../../contexts/Auth'
+
 
 const Profile = () => {
 
-    const [form, setForm] = useState("MyAdverts")
+    const history = useHistory()
+    const {authenticated} = useAuth()
+
+    if(!authenticated)
+        history.push('/login')
+
+    const [form, setForm] = useState("FormEditUserData")
 
     return (
         <Container>

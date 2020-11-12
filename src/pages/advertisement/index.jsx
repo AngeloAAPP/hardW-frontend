@@ -3,8 +3,17 @@ import {Container, Content, Form, FormContent} from './styles'
 import Header from '../../components/Header'
 import MultipleDropzone from '../../components/MultipleDropzone'
 import FormCreateAdvertisement from '../../components/forms/FormCreateAdvertisement'
+import {useHistory} from 'react-router-dom'
+import {useAuth} from '../../contexts/Auth'
 
 const Advertisement = () => {
+
+    const history = useHistory()
+    const {authenticated} = useAuth()
+
+    if(!authenticated)
+        history.push('/login')
+
     return (
         <>
         <Header/>
