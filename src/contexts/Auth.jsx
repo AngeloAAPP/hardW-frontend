@@ -99,6 +99,26 @@ const AuthContext = ({children}) => {
             localStorage.setItem("authorization", authorization)
             localStorage.setItem("refresh", refresh)
             localStorage.setItem("id", id)
+
+            api.interceptors.response.use(
+                (response) => {
+                  return response;
+                },
+                async function (error) {
+                  if (error.response.status === 401 && authenticated) {
+                      try {
+                        await refreshAuth();
+                        const response = await api.request(error.config)
+                        return response
+                      } catch (err) {
+                          throw new Error(err)
+                      }
+
+                  }
+                }
+              );
+
+              
         } catch (err) {
             throw new Error(err.response.data.message)
         }
