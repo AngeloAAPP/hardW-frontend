@@ -1,5 +1,5 @@
 import React, {useState, useContext, createContext, useEffect} from 'react'
-import api from '../services/api'
+import api, {setAuthorization} from '../services/api'
 import LoadingAnimation from '../components/LoadingApplication'
 
 const context = createContext({})
@@ -23,28 +23,25 @@ const AuthContext = ({children}) => {
 
         async function isAuthenticated(){
             setLoading(true)
-            await getProfileData(refreshToken, userID)
+            await getProfileData(userID)
             setLoading(false)
         }
 
         if(refreshToken && userID){
+            api.defaults.headers.common['uID'] = userID
             isAuthenticated()
         }
             
     }, [])
 
-    const getProfileData = async(refreshToken, userID) => {
+    const getProfileData = async(userID) => {
 
         try {
-            await refreshAuth(refreshToken, userID)
+            await refreshAuth()
 
-            const tokenStorage = localStorage.getItem('authorization')
             const response = await api.get('/users/profile', {
                 params: {
                     userID
-                },
-                headers: {
-                    'authorization': `Bearer ${tokenStorage}`
                 }
             })
             
@@ -67,6 +64,7 @@ const AuthContext = ({children}) => {
             localStorage.removeItem("id")
 
             alert("A sessão expirou. Faça login novamente")
+            window.location.pathname = '/login'
         }
     }
 
@@ -100,24 +98,9 @@ const AuthContext = ({children}) => {
             localStorage.setItem("refresh", refresh)
             localStorage.setItem("id", id)
 
-            api.interceptors.response.use(
-                (response) => {
-                  return response;
-                },
-                async function (error) {
-                  if (error.response.status === 401 && authenticated) {
-                      try {
-                        await refreshAuth();
-                        const response = await api.request(error.config)
-                        return response
-                      } catch (err) {
-                          throw new Error(err)
-                      }
-
-                  }
-                }
-              );
-
+            api.defaults.headers.common['uID'] = id
+            setAuthorization(authorization)
+            setAxiosConfig()
               
         } catch (err) {
             throw new Error(err.response.data.message)
@@ -135,27 +118,64 @@ const AuthContext = ({children}) => {
         setAuthenticated(false)
     }
 
-    const refreshAuth = async(refreshStorage = null, idStorage = null) => {
-        try {
+    const setAxiosConfig = () => {
 
+
+        api.interceptors.response.use(
+            undefined,
+            async error =>{
+                 if(error.response.status === 401){
+                        const response = await refreshAuth();
+
+                        if(response){
+                            const newToken = localStorage.getItem('authorization')
+                            error.config.headers['authorization'] = newToken;
+                            return Promise.resolve(api.request(error.config))
+                        }
+                        else{
+                            localStorage.removeItem("authorization")
+                            localStorage.removeItem("refresh")
+                            localStorage.removeItem("id")
+            
+                            alert("A sessão expirou. Faça login novamente")
+                            window.location.pathname = '/login'
+                        }  
+                 }
+                 else
+                    return Promise.reject(error)
+            }
+          );
+
+    }
+
+    const refreshAuth = async() => {
+
+        const refreshStorage = localStorage.getItem("refresh")
+        const idStorage = localStorage.getItem("id")
+
+        try {
             const response = await api.post('/authenticate/refresh', {
-                user: idStorage ? idStorage : id,           
+                user: idStorage          
             }, {
                 headers: {
-                    'refresh': refreshStorage ? refreshStorage : refresh
+                    'refresh': refreshStorage
                 }
             })
 
 
             const {authorization, refresh: refreshToken} = response.headers
+            setAuthorization(authorization)
+            setAxiosConfig()
 
             setToken(authorization)
             setRefresh(refreshToken)
 
             localStorage.setItem("authorization", authorization)
             localStorage.setItem("refresh", refreshToken)
+            console.log("fim refresh")
+            return true
         } catch (err) {
-            throw new Error(err.response.data.message)
+            return false
         }
     }
 
