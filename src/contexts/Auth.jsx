@@ -107,6 +107,15 @@ const AuthContext = ({children}) => {
     }
 
     const signOut = async() => {
+
+        const refresh = localStorage.getItem("refresh")
+
+        api.post('/authenticate/logout', undefined , {
+            headers: {
+                refresh
+            }
+        })
+
         localStorage.removeItem("authorization")
         localStorage.removeItem("refresh")
         localStorage.removeItem("id")
