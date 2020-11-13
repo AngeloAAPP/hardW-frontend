@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Content, Nav } from './styles'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import Logo from '../../assets/logo.png'
 import Hamburguer from '../Hamburguer'
@@ -13,7 +13,13 @@ const Header = () => {
     const [mobile, setMobile] = useState(true)
     const [hiddenMenu, setHiddenMenu] = useState(true)
 
-    const {authenticated, data} = useAuth()
+    const {authenticated, data, signOut} = useAuth()
+    const history = useHistory()
+
+    async function handleSignOut(){
+        await signOut()
+        history.push('/login')
+    }
     return (
         <Container>
             <Content>
@@ -39,7 +45,7 @@ const Header = () => {
                                     <ul>
                                         <li><Link to = "/profile" className = "radius-top">Editar perfil</Link></li>
                                         <li><Link to = "/login">Meus anúncios</Link></li>
-                                        <li><strong className = "radius-bottom">Sair</strong></li>
+                                        <li><strong className = "radius-bottom" onClick = {handleSignOut}>Sair</strong></li>
                                     </ul>
                                 </li>
                             </ul>

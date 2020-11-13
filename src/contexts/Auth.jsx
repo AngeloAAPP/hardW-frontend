@@ -7,8 +7,6 @@ const context = createContext({})
 const AuthContext = ({children}) => {
 
     const [authenticated, setAuthenticated] = useState(false)
-    const [token, setToken] = useState("")
-    const [refresh, setRefresh] = useState("")
     const [id, setID] = useState("")
     const [loading, setLoading] = useState(false)
 
@@ -28,7 +26,7 @@ const AuthContext = ({children}) => {
         }
 
         if(refreshToken && userID){
-            api.defaults.headers.common['uID'] = userID
+            api.defaults.headers.uID = userID
             isAuthenticated()
         }
             
@@ -90,15 +88,13 @@ const AuthContext = ({children}) => {
 
             setID(id)
             setData(data)
-            setToken(authorization)
-            setRefresh(refresh)
             setAuthenticated(true)
 
             localStorage.setItem("authorization", authorization)
             localStorage.setItem("refresh", refresh)
             localStorage.setItem("id", id)
 
-            api.defaults.headers.common['uID'] = id
+            api.defaults.headers.uID = id
             setAuthorization(authorization)
             setAxiosConfig()
               
@@ -110,46 +106,44 @@ const AuthContext = ({children}) => {
        
     }
 
-    const signOut = () => {
-        localStorage.removeItem("tokenUser")
-        localStorage.removeItem("Refresh")
-        setToken("")
-        setRefresh("")
+    const signOut = async() => {
+        localStorage.removeItem("authorization")
+        localStorage.removeItem("refresh")
+        localStorage.removeItem("id")
+
+        api.defaults.headers.authorization = ""
+        api.defaults.headers.uID = ""
         setAuthenticated(false)
     }
 
     const setAxiosConfig = () => {
-
-
         api.interceptors.response.use(
             undefined,
             async error =>{
-                 if(error.response.status === 401){
-                        const response = await refreshAuth();
+                if(error.response.status === 401){
+                    const response = await refreshAuth();
 
-                        if(response){
-                            const newToken = localStorage.getItem('authorization')
-                            error.config.headers['authorization'] = newToken;
-                            return Promise.resolve(api.request(error.config))
-                        }
-                        else{
-                            localStorage.removeItem("authorization")
-                            localStorage.removeItem("refresh")
-                            localStorage.removeItem("id")
-            
-                            alert("A sessão expirou. Faça login novamente")
-                            window.location.pathname = '/login'
-                        }  
+                    if(response){
+                        const newToken = localStorage.getItem('authorization')
+                        error.config.headers['authorization'] = newToken;
+                        return Promise.resolve(api.request(error.config))
+                    }
+                    else{
+                        localStorage.removeItem("authorization")
+                        localStorage.removeItem("refresh")
+                        localStorage.removeItem("id")
+        
+                        alert("A sessão expirou. Faça login novamente")
+                        window.location.pathname = '/login'
+                    }  
                  }
                  else
                     return Promise.reject(error)
             }
           );
-
     }
 
     const refreshAuth = async() => {
-
         const refreshStorage = localStorage.getItem("refresh")
         const idStorage = localStorage.getItem("id")
 
@@ -163,16 +157,12 @@ const AuthContext = ({children}) => {
             })
 
 
-            const {authorization, refresh: refreshToken} = response.headers
+            const {authorization, refresh} = response.headers
             setAuthorization(authorization)
             setAxiosConfig()
 
-            setToken(authorization)
-            setRefresh(refreshToken)
-
             localStorage.setItem("authorization", authorization)
-            localStorage.setItem("refresh", refreshToken)
-            console.log("fim refresh")
+            localStorage.setItem("refresh", refresh)
             return true
         } catch (err) {
             return false
@@ -183,9 +173,7 @@ const AuthContext = ({children}) => {
     return (
         <context.Provider value = {{
             authenticated,
-            token,
-            refresh,
-            signIn, signOut, refreshAuth,
+            signIn, signOut,
             id,
             data
         }}>
@@ -196,11 +184,11 @@ const AuthContext = ({children}) => {
 
 export function useAuth(){
     const {
-        authenticated, token, refresh, signIn, signOut, refreshAuth,  id, data
+        authenticated, signIn, signOut, id, data
     } = useContext(context)
 
     return {
-        authenticated, token, refresh, signIn, signOut, refreshAuth,  id, data
+        authenticated, signIn, signOut, id, data
     }
 }
 
