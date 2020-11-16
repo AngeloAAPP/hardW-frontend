@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import {Container} from './styles'
-
+import {useHistory} from 'react-router-dom'
 import HeaderForm from '../HeaderForm'
 import Button from '../../Button'
 import {FaArrowLeft} from 'react-icons/fa'
@@ -39,8 +39,21 @@ const FormUserImage = ({changeForm}) => {
         setLoading(true)
 
         try {
-            await api.post('/users', data)
-            alert("sucesso")
+            const response = await api.post('/users', data)
+            
+            const {refresh} = response.headers
+            const {id} = response.data.user
+
+            console.log(refresh)
+            console.log(id)
+
+            localStorage.setItem("refresh", refresh)
+            localStorage.setItem("id", id)
+
+            toast.success("Cadastro efetuado com sucesso. Redirecionando em instantes...")
+            setTimeout(() => {
+                window.location.pathname = '/'
+            }, 4000);
         } catch (err) {
             toast.error(err.response.data.message)
         }

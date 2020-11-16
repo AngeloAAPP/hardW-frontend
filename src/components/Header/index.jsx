@@ -36,7 +36,7 @@ const Header = () => {
                                 <li>
                                     <Link to="/newAdvertisement" className="btn">Anunciar</Link>
                                 </li>
-                                <li className="username"> <label>Angelo Scolfaro</label> </li>
+                                <li className="username"> <label>{`${data.name} ${data.lastName}`}</label> </li>
                                 <li className="avatar-menu">
                                     <div className="img" onClick={() => setHiddenMenu(!hiddenMenu)}>
                                         <img src={data.avatarUrl ? data.avatarUrl : "https://www.cvasolutions.com/wp-content/uploads/2017/03/sem-avatar.jpg"} alt="avatar" />
