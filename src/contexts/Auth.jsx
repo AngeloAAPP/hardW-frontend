@@ -159,6 +159,8 @@ const AuthContext = ({children}) => {
         const refreshStorage = localStorage.getItem("refresh")
         const idStorage = localStorage.getItem("id")
 
+        console.log("executou refreshauth")
+
         try {
             const response = await api.post('/authenticate/refresh', {
                 user: idStorage          
