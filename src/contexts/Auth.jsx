@@ -64,6 +64,10 @@ const AuthContext = ({children}) => {
             localStorage.removeItem("refresh")
             localStorage.removeItem("id")
 
+            api.defaults.headers.authorization = ""
+            api.defaults.headers.uID = ""
+            setAuthenticated(false)
+
             alert("A sessão expirou. Faça login novamente")
             window.location.pathname = '/login'
         }
@@ -144,6 +148,10 @@ const AuthContext = ({children}) => {
                         localStorage.removeItem("authorization")
                         localStorage.removeItem("refresh")
                         localStorage.removeItem("id")
+
+                        api.defaults.headers.authorization = ""
+                        api.defaults.headers.uID = ""
+                        setAuthenticated(false)
         
                         alert("A sessão expirou. Faça login novamente")
                         window.location.pathname = '/login'
@@ -158,8 +166,6 @@ const AuthContext = ({children}) => {
     const refreshAuth = async() => {
         const refreshStorage = localStorage.getItem("refresh")
         const idStorage = localStorage.getItem("id")
-
-        console.log("executou refreshauth")
 
         try {
             const response = await api.post('/authenticate/refresh', {
