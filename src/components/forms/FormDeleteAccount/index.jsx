@@ -12,6 +12,8 @@ import LoadingAnimation from 'react-spinners/SyncLoader'
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
+import {Confirm} from 'react-st-modal'
+
 const FormEditUser = () => {
     const [loading, setLoading] = useState(false)
     const {signOut} = useAuth()
@@ -28,6 +30,24 @@ const FormEditUser = () => {
         setLoading(false)
     }
 
+    const ConfirmText = () => {
+        return <div>
+            <p>Todos os seus dados, incluindo anúncios, imagens de anúncios, perfil serão perdidos e não poderão ser recuperados. </p>
+            <p style = {{marginTop: '10px'}}>Ao final do processo, você será redirecionado.</p>
+        </div>
+    }
+
+    async function confirmAction(){
+        const confirm = await Confirm(<ConfirmText/>, 
+            'Tem certeza que deseja excluir sua conta?', 'Excluir', 'Cancelar');
+          
+          if (confirm) {
+            deleteAccount()
+          }
+    }
+
+
+
     return (
         <Container>
             <ReactSVG src = {Sad}/>
@@ -36,7 +56,7 @@ const FormEditUser = () => {
                 <h1>Tem certeza que deseja excluir a sua conta?</h1>
                 <h2>Todos os seus dados e anúncios serão perdidos.</h2>
             </div>
-            <Button onClick = {deleteAccount} disabled = {loading}>{loading ? <div className="sweet-loading">
+            <Button onClick = {confirmAction} disabled = {loading}>{loading ? <div className="sweet-loading">
                     <LoadingAnimation
                         css={css`
                         width: 100%;

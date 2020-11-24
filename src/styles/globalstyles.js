@@ -26,6 +26,26 @@ const GlobalStyle = createGlobalStyle`
         background: var(--gray-light)
     }
 
+    //Customiza o modal do pacote react-st-modal
+    #stfDialogPlace{
+
+        button{
+            cursor: pointer;
+            outline-color: var(--primary);
+
+            &:first-child{
+                background-color: red;
+            }
+
+            &:nth-child(2){
+                background-color: var(--white);
+                color: var(--primary-dark);
+            }
+        }
+
+        
+    }
+
     input, button{border: none}
 
     :root {
