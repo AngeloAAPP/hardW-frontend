@@ -41,8 +41,8 @@ const Home = () => {
                             <summary>Categorias</summary>
                             <div className = "options">
                                 <div className = "option">
-                                    <input type="radio" name="category" id="all" value = "%"/>
-                                    <label htmlFor="all">Todas</label>
+                                    <input type="radio" name="category" id="allCategories" value = "%"/>
+                                    <label htmlFor="allCategories">Todas</label>
                                 </div>
                                 <div className = "option">
                                     <input type="radio" name="category" id="Placa mãe" value = "1"/>
@@ -91,6 +91,10 @@ const Home = () => {
                         <details open>
                             <summary>Subcategorias</summary>
                             <div className = "options">
+                            <div className = "option">
+                                    <input type="radio" name="subcategory" id="allSubcategories" value = "%"/>
+                                    <label htmlFor="allSubcategories">Todas</label>
+                                </div>
                                 <div className = "option">
                                     <input type="radio" name="subcategory" id="amd" value = "amd"/>
                                     <label htmlFor="amd">amd</label>
