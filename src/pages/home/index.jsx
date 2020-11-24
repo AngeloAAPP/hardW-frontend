@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {Container, FindAdvertsLocation, Main, Filters, Adverts} from './styles'
 import {FaFilter} from 'react-icons/fa'
 
@@ -11,25 +11,11 @@ import Button from '../../components/Button'
 
 import AdvertisementCard from '../../components/AdvertisementCard'
 
-import api from '../../services/api'
-
-
 const Home = () => {
 
     
-    const [categories, setCategories] = useState([])
     const [uf, setUF] = useState("")
     const [city, setCity] = useState("")
-
-    useEffect(() => {
-
-      async function getCategories(){
-        const categories = await api.get('/categories')
-        setCategories(categories.data)
-      }
- 
-      getCategories()
-    }, [])
 
     return (
         <Container>
@@ -58,12 +44,47 @@ const Home = () => {
                                     <input type="radio" name="category" id="all" value = "%"/>
                                     <label htmlFor="all">Todas</label>
                                 </div>
-                                {categories.map(category => 
-                                    <div key = {category.name} className = "option">
-                                        <input type="radio" name="category" id={category.name} value = {category.id}/>
-                                        <label htmlFor={category.name}>{category.name}</label>
-                                    </div>)
-                                }
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Placa mãe" value = "1"/>
+                                    <label htmlFor="Placa mãe">Placa mãe</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Processador" value = "2"/>
+                                    <label htmlFor="Processador">Processador</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Placa de vídeo" value = "5"/>
+                                    <label htmlFor="Placa de vídeo">Placa de vídeo</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Refrigeração" value = "8"/>
+                                    <label htmlFor="Refrigeração">Refrigeração</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Fonte de alimentação" value = "6"/>
+                                    <label htmlFor="Fonte de alimentação">Fonte de alimentação</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Drives (HD, SSD, DVD)" value = "4"/>
+                                    <label htmlFor="Drives (HD, SSD, DVD)">Drives (HD, SSD, DVD)</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Memória ram" value = "3"/>
+                                    <label htmlFor="Memória ram">Memória ram</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Periféricos" value = "9"/>
+                                    <label htmlFor="Periféricos">Periféricos</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Gabinete" value = "7"/>
+                                    <label htmlFor="Gabinete">Gabinete</label>
+                                </div>
+                                <div className = "option">
+                                    <input type="radio" name="category" id="Outros" value = "10"/>
+                                    <label htmlFor="Outros">Outros</label>
+                                </div>
+                                
                             </div>
                         </details>
 

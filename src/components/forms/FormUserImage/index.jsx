@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 
 import {Container} from './styles'
-import {useHistory} from 'react-router-dom'
 import HeaderForm from '../HeaderForm'
 import Button from '../../Button'
 import {FaArrowLeft} from 'react-icons/fa'
