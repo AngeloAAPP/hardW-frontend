@@ -42,16 +42,18 @@ const AuthContext = ({children}) => {
                     userID
                 }
             })
-            
-            const {name, lastName, whatsapp, avatarUrl, adverts, address} = response.data
+
+            const {name, lastName, whatsapp, email, avatarUrl, adverts, address, createdAt} = response.data
 
             const data = {
                 name,
                 lastName,
                 whatsapp,
+                email,
                 avatarUrl,
                 address,
-                adverts
+                adverts,
+                createdAt
             }
 
             setData(data)
@@ -81,16 +83,18 @@ const AuthContext = ({children}) => {
                 password
             })
             
-            const {id,name, lastName, whatsapp, avatarUrl, adverts, address} = response.data
+            const {id,name, lastName, whatsapp, email, avatarUrl, adverts, address, createdAt} = response.data
             const {authorization, refresh} = response.headers
 
             const data = {
                 name,
                 lastName,
                 whatsapp,
+                email,
                 avatarUrl,
                 address,
-                adverts
+                adverts,
+                createdAt
             }
 
             setID(id)

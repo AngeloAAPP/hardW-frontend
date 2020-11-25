@@ -66,7 +66,11 @@ export const Container = styled.form`
     input{
         background: var(--gray-light);
         height: 70px;
-        color: ${props => props.locked ? 'var(--placeholder-input-white)' : 'var(--black-light)'}
+        color: ${props => props.locked ? 'var(--placeholder-input-white)' : 'var(--black-light)'};
+
+        &.notEditable{
+            color: var(--placeholder-input-white);
+        }
     }
 
     button{
