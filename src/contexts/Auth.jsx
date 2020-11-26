@@ -78,12 +78,13 @@ const AuthContext = ({children}) => {
     const signIn = async (email, password) => {
 
         try {
+
             const response = await api.post('/authenticate', {
                 email,
                 password
             })
             
-            const {id,name, lastName, whatsapp, email, avatarUrl, adverts, address, createdAt} = response.data
+            const {id,name, lastName, whatsapp, avatarUrl, adverts, address, createdAt} = response.data
             const {authorization, refresh} = response.headers
 
             const data = {
