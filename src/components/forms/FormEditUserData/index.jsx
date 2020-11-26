@@ -34,6 +34,9 @@ const FormEditUser = () => {
     
     }, [])
 
+    const months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+    const createdAt = new Date(data.createdAt) 
+
 
     return (
         <div>
@@ -42,7 +45,7 @@ const FormEditUser = () => {
                     <h1>Avatar</h1>
                 </div>
                 <Dropzone fileUrl = {fileUrl} setFileUrl = {setFileUrl} setImage = {setImage} image = {image}/>
-                    <span className = "about">Na HardW desde julho de 2020
+                    <span className = "about">Na HardW desde {months[createdAt.getMonth()]} de {createdAt.getFullYear()}
                         <ReactSVG src = {Happy}/>
                     </span>
             </Container>
