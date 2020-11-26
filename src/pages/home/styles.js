@@ -28,9 +28,25 @@ export const FindAdvertsLocation = styled.section`
             font-size: 16px;
             text-align: center;
             background: var(--white);
+            margin-right: 5px;
+        }
 
-            &:first-child{
-                margin-right: 5px;
+        .search{
+            background-color: var(--white);
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            cursor: pointer;
+
+            svg{
+                color: var(--primary)
+            }
+
+            @media(max-width: 800px){
+                width: 100%;
             }
         }
 

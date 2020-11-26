@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Container, FindAdvertsLocation, Main, Filters, Adverts} from './styles'
-import {FaFilter} from 'react-icons/fa'
+import {FaFilter, FaSearch} from 'react-icons/fa'
 
 import Header from '../../components/Header'
 
@@ -26,6 +26,9 @@ const Home = () => {
                     <div className="seletores">
                         <ComboboxUF uf = {uf} setUF = {setUF}/>
                         <ComboboxCity uf = {uf} city = {city} setCity = {setCity}/>
+                        <div className = "search">
+                            <FaSearch/>
+                        </div>  
                     </div>
                 </div>
             </FindAdvertsLocation>
