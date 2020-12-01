@@ -194,13 +194,21 @@ const AuthContext = ({children}) => {
         }
     }
 
+    const updateUserData = newData => {
+        setData({
+            ...data,
+            ...newData
+        })
+    }
+
 
     return (
         <context.Provider value = {{
             authenticated,
             signIn, signOut,
             id,
-            data
+            data,
+            updateUserData,
         }}>
             {loading ? <LoadingAnimation/> : children}
         </context.Provider>
@@ -209,11 +217,11 @@ const AuthContext = ({children}) => {
 
 export function useAuth(){
     const {
-        authenticated, signIn, signOut, id, data
+        authenticated, signIn, signOut, id, data, updateUserData
     } = useContext(context)
 
     return {
-        authenticated, signIn, signOut, id, data
+        authenticated, signIn, signOut, id, data, updateUserData
     }
 }
 

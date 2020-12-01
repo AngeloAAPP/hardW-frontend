@@ -10,7 +10,13 @@ import Happy from '../../../assets/icons/happy.svg'
 import Input from '../../Input'
 import Button from '../../Button'
 
+import {css} from '@emotion/core'
+import LoadingAnimation from 'react-spinners/SyncLoader'
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 import {useAuth} from '../../../contexts/Auth'
+import api from '../../../services/api'
 
 const FormEditUser = () => {
 
@@ -21,23 +27,55 @@ const FormEditUser = () => {
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
     const [whatsapp, setWhatsapp] = useState("")
+    const [loading, setLoading] = useState(false)
 
-    const {data} = useAuth()
+    const {data, updateUserData} = useAuth()
 
-    useEffect(() => {
+    function fillData(){
         setName(data.name)
         setLastName(data.lastName)
         setWhatsapp(data.whatsapp)
 
+        
+    }
+
+    useEffect(() => {
+        fillData()
+
         if(data.avatarUrl)
             setFileUrl(data.avatarUrl)
-    
     }, [])
 
     const months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
     const createdAt = new Date(data.createdAt) 
 
+    async function update(){
+        setLoading(true)
 
+        let newData = {}
+
+        if(name !== data.name)
+            newData.name = name
+
+        if(lastName !== data.lastName)
+            newData.lastName = lastName
+
+        if(whatsapp !== data.whatsapp)
+            newData.whatsapp = whatsapp
+
+        if(Object.keys(newData).length > 0){
+            try {
+                await api.put('/users', newData)
+                updateUserData(newData)
+            } catch (err) {
+                fillData()
+                toast.error(err.response.data.message)
+            }
+        }
+
+        setLocked(true)
+        setLoading(false)
+    }
     return (
         <div>
             <Container>
@@ -61,7 +99,18 @@ const FormEditUser = () => {
                 <span className = "note">
                     Não é possível alterar o e-mail!
                 </span>
-                <Button onClick = {() => setLocked(true)}>{locked ? "Salvo" : "Salvar"}</Button>
+                <Button onClick = {update} disabled = {loading}>
+                    {loading ? <div className="sweet-loading">
+                        <LoadingAnimation
+                            css={css`
+                            width: 100%;
+                            `}
+                            color={"white"}
+                            loading={loading}
+
+                        />
+                    </div> : <div>{locked ? "Salvo" : "Salvar"}</div>}</Button>
+                <ToastContainer/>
             </Container>
         </div>
     )
