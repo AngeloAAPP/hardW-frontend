@@ -41,7 +41,7 @@ const FormEditUser = () => {
         fillData()
     }, [])
 
-    console.log(data)
+    console.log(city)
 
     async function update(){
 
@@ -99,7 +99,7 @@ const FormEditUser = () => {
             <Input placeholder = "Cep" value = {zipCode} onChange = {(e) => setZipCode(e.target.value)} disabled = {locked}/>
             <Input placeholder = "Rua" value = {street}  onChange = {(e) => setStreet(e.target.value)} disabled = {locked}/>
             <Input placeholder = "Bairro" value = {neighbourhood} onChange = {(e) => setNeighbourhood(e.target.value)} disabled = {locked}/>
-            <ComboboxUF uf = {uf} setUF = {setUF} disabled = {locked}/>
+            <ComboboxUF uf = {uf} setUF = {setUF} setCity = {setCity} disabled = {locked}/>
             <ComboboxCity uf = {uf} city = {city} setCity = {setCity} disabled = {locked}/>
             
             <Button onClick = {update} disabled = {loading}>

@@ -7,10 +7,8 @@ const ComboboxCity = ({uf, city, setCity, ...rest}) => {
     const [cities, setCities] = useState([])
 
     useEffect(() => {
-
         axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`)
             .then(response => setCities(response.data))
-    
     }, [uf])
 
     return (
