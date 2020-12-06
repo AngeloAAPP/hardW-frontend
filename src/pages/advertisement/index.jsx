@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Container, Content, Form, FormContent} from './styles'
 import Header from '../../components/Header'
 import MultipleDropzone from '../../components/MultipleDropzone'
@@ -11,6 +11,8 @@ const Advertisement = () => {
     const history = useHistory()
     const {authenticated} = useAuth()
 
+    const [images, setImages] = useState([])
+
     if(!authenticated)
         history.push('/login')
 
@@ -19,12 +21,12 @@ const Advertisement = () => {
         <Header/>
             <Container>
                 <Content>
-                    <MultipleDropzone/>
+                    <MultipleDropzone setImages = {setImages}/>
                     <p>* Imagens não são obrigatórias, mas é uma boa idéia adicionálas, pois aumenta a chance de encontrarmos um comprador</p>
                 </Content>
                 <Form>
                     <FormContent>
-                        <FormCreateAdvertisement/>
+                        <FormCreateAdvertisement images = {images}/>
                     </FormContent>
                 </Form>
             </Container>

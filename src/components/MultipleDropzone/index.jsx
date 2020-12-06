@@ -2,16 +2,19 @@ import React, {useState, useCallback} from 'react'
 import {Container} from './styles'
 import {useDropzone} from 'react-dropzone'
 
-const MultipleDropzone = ({props}) => {
+const MultipleDropzone = ({setImages}) => {
 
-    const [images, setImages] = useState([])
+  const [urlImages, setUrlImages] = useState([]) 
+
     const onDrop = useCallback(acceptedFiles => {
         try{
             const files = acceptedFiles.map(file => (
                  URL.createObjectURL(file)
             ));
 
-            setImages(files)
+            setUrlImages(files)
+
+            setImages(acceptedFiles)
         }
         catch(err){return}
       }, [setImages])
@@ -28,9 +31,9 @@ const MultipleDropzone = ({props}) => {
           <p className = "mobile">Clique aqui para selecionar até 6 imagens</p>
         </div>
         <aside>
-          {images.length > 0 && <h4>Imagens selecionadas</h4>}
+          {urlImages.length > 0 && <h4>Imagens selecionadas</h4>}
           <div className = "images">
-            {images.map((image, i) => <img key = {i} src = {image} alt = ""/>)}
+            {urlImages.map((image, i) => <img key = {i} src = {image} alt = ""/>)}
           </div>
         </aside>
       </Container>
