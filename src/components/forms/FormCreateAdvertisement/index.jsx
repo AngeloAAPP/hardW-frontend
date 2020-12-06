@@ -49,8 +49,9 @@ const FormCreateAdvertisement = ({images}) => {
         data.append("description", description)
         data.append("price", price)
         data.append("categoryID", selectedCategorie)
-        data.append("subcategoryID", selectedSubCategorie !== "" ? selectedSubCategorie : false)
-        console.log(selectedSubCategorie)
+        
+        if(selectedSubCategorie !== "")
+            data.append("subcategoryID", selectedSubCategorie)
         
         images.forEach(image => {
             data.append("image", image)
