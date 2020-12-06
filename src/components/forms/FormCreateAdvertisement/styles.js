@@ -61,7 +61,7 @@ export const Container = styled.form`
         }
     }
 
-    button{
+    button.btn{
         max-width: 150px;
         font-size: 20px;
         max-height: 70px;

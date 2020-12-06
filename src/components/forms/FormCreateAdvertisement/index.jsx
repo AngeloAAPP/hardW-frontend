@@ -62,7 +62,6 @@ const FormCreateAdvertisement = ({images}) => {
         try {
             const response = await api.post('/adverts', data)
             toast.success("cadastrado com sucesso")
-            console.log(response.data)
         } catch (err) {
             toast.error(err.response.data.message)
         }
@@ -97,7 +96,7 @@ const FormCreateAdvertisement = ({images}) => {
                     )}
                 </div>
             }
-            <Button onClick = {createAdvertisement} disabled = {loading}>{loading ? <div className="sweet-loading">
+            <Button className = "btn" onClick = {createAdvertisement} disabled = {loading}>{loading ? <div className="sweet-loading">
                     <LoadingAnimation
                         css={css`
                         width: 100%;
