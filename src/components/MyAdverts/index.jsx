@@ -2,22 +2,31 @@ import React from 'react'
 import {Container} from './styles'
 import Card from '../CardEditableAdvertisement'
 
+import {useAuth} from '../../contexts/Auth'
+
 const MyAdverts = () => {
+
+    const {data} = useAuth()
+
     return (
         <Container>
-            <Card 
-                title = "Placa mãe "
-                image = "https://img.olx.com.br/images/15/156064801212382.jpg"
-                price = "R$ 120,00"
-                timestamp = "Publicado em: 07/08/2020 16:20"
-            />
-
-            <Card 
-                title = "Placa mãe para intel socket 1155 "
-                image = "https://http2.mlstatic.com/D_NQ_NP_838032-MLB42699520512_072020-W.jpg"
-                price = "R$ 120,00"
-                timestamp = "Publicado em: 07/08/2020 16:20"
-            />
+            {
+                data.adverts.length > 0 ?
+                <>
+                    {
+                        data.adverts.map(advertisement => {
+                        const datetime = new Date(advertisement.createdAt)
+                        
+                        return <Card  
+                            key = {advertisement.id}
+                            title = {advertisement.name}
+                            image = {advertisement.images.length > 0 ? advertisement.images[0].url : 'https://www.tudooclub.com.br/wp-content/uploads/2020/08/Padrao-Capa-Anuncio-Site-Sem-foto.png'}
+                            price = {`R$ ${advertisement.price.toFixed(2).replace(".", ",")}`}
+                            timestamp = {`Publicado em: ${datetime.toLocaleString('pt-br')}`}
+                        />})
+                    } 
+                </> : <p>Nenhum anúncio cadastrado</p>
+            }
         </Container>
     )
 }
