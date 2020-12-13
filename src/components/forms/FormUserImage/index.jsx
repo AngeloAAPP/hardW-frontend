@@ -19,6 +19,7 @@ const FormUserImage = ({changeForm}) => {
     const [fileUrl, setFileUrl] = useState("")
     const [image, setImage] = useState("")
     const [loading, setLoading] = useState(false)
+    const [disabled, setDisabled] = useState(false)
 
     const register = async() => {
         const data = new FormData()
@@ -50,6 +51,7 @@ const FormUserImage = ({changeForm}) => {
             localStorage.setItem("id", id)
 
             toast.success("Cadastro efetuado com sucesso. Redirecionando em instantes...")
+            setDisabled(true);
             setTimeout(() => {
                 window.location.pathname = '/'
             }, 4000);
@@ -73,7 +75,7 @@ const FormUserImage = ({changeForm}) => {
                 Voltar
             </span>
             <Dropzone fileUrl = {fileUrl} setFileUrl = {setFileUrl} setImage = {setImage}/>
-            <Button onClick = {register} disabled = {loading}>
+            <Button onClick = {register} disabled = {loading || disabled}>
                 {loading ? <div className="sweet-loading">
                     <LoadingAnimation
                         css={css`
