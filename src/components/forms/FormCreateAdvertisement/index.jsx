@@ -10,6 +10,7 @@ import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 import api from '../../../services/api'
+import {useAuth} from '../../../contexts/Auth'
 
 const FormCreateAdvertisement = ({images}) => {
 
@@ -20,6 +21,8 @@ const FormCreateAdvertisement = ({images}) => {
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [loading, setLoading] = useState(false) 
+
+    const {updateUserData, data: dataProfile} = useAuth()
 
     useEffect(() => {
 
@@ -59,10 +62,29 @@ const FormCreateAdvertisement = ({images}) => {
 
         setLoading(true)
 
+
         try {
             const response = await api.post('/adverts', data)
             toast.success("cadastrado com sucesso")
+
+
+            updateUserData({...dataProfile, adverts: [
+                ...dataProfile.adverts,
+                {
+                    id: response.data.id,
+                    name: response.data.name,
+                    price: response.data.price,
+                    status: response.data.status,
+                    categoryID: response.data.categoryID,
+                    subcategoryID: response.data.subcategoryID,
+                    createdAt: response.data.createdAt,
+                    updatedAt: response.data.updatedAt,
+                    userID: response.data.userID,
+                    images: response.data.images,
+                }
+            ]})
         } catch (err) {
+            console.log(err)
             toast.error(err.response.data.message)
         }
 
