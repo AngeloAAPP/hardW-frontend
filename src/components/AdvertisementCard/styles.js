@@ -8,6 +8,7 @@ export const Container = styled.div`
 
     @media(max-width: 800px){
         padding: 8px;
+        margin-bottom: 10px;
     }
 
     .content{
@@ -18,6 +19,7 @@ export const Container = styled.div`
         @media(max-width: 800px){
             flex-direction: column;
             align-items: center;
+            border-bottom: 0px;
         }
 
         .image{
@@ -30,7 +32,8 @@ export const Container = styled.div`
 
 
             @media(max-width: 800px){
-                width: 300px;
+                max-width: 260px;
+                margin-bottom: 8px;
             }
 
             img{

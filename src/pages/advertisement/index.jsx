@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Container, Content, Form, FormContent} from './styles'
+import {Container, Content, Form, FormContent, PersonalizedBackgroundColor} from './styles'
 import Header from '../../components/Header'
 import MultipleDropzone from '../../components/MultipleDropzone'
 import FormCreateAdvertisement from '../../components/forms/FormCreateAdvertisement'
@@ -30,6 +30,7 @@ const Advertisement = () => {
                     </FormContent>
                 </Form>
             </Container>
+            <PersonalizedBackgroundColor/>
         </>
     )
 }

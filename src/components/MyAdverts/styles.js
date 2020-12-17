@@ -8,8 +8,5 @@ export const Container = styled.div`
     flex-direction: column;
     border-radius: 8px;
     position: relative;
-
-    @media(max-width: 800px){
-        padding: 20px;
-    }
+    width: 100%;
 `

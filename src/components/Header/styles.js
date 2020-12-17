@@ -205,6 +205,7 @@ export const Nav = styled.nav`
                     background: var(--primary);
                     transition: background 200ms;
                     color: var(--white);
+                    z-index: 9999999;
 
                     &:hover{
                         background: var(--primary-dark);
@@ -236,7 +237,7 @@ export const Nav = styled.nav`
             top: 0;
             right: 0;
             width: 250px;
-            height: 100vh;
+            height: 100%;
             background: var(--white);
             display: ${props => props.mobile ? 'none' : 'flex'};
             animation: right 500ms;
@@ -244,11 +245,6 @@ export const Nav = styled.nav`
             padding: 120px 0 20px 0;
             align-items: center;
             z-index: 2;
-            
-            
-            li{
-                margin: 15px 0;
-            }
 
             li + li{
                 margin-left: 0;

@@ -1,10 +1,29 @@
-import styled from 'styled-components'
+import styled, {createGlobalStyle} from 'styled-components'
+
+export const PersonalizedBackgroundColor = createGlobalStyle`
+
+    body{
+        background: var(--primary);
+    }
+`
 
 export const Container = styled.div`
     width: 100%;
 
     @media(max-width: 800px){
         padding: 15px;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: var(--gray-light);
+        z-index: -1;
+        height: 40rem;
     }
 `
 
@@ -31,7 +50,6 @@ export const Content = styled.main`
 
 
 export const Form = styled.div`
-    background: var(--primary);
 
     @media(max-width: 800px){
         background: initial;
@@ -41,7 +59,6 @@ export const Form = styled.div`
 export const FormContent = styled.div`
     max-width: 1000px;
     margin: 0 auto;
-    margin-top: 150px;
     padding-bottom: 60px;
 
     @media(max-width: 800px){
