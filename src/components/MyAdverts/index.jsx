@@ -19,6 +19,7 @@ const MyAdverts = () => {
                         
                         return <Card  
                             key = {advertisement.id}
+                            id = {advertisement.id}
                             title = {advertisement.name}
                             image = {advertisement.images.length > 0 ? advertisement.images[0].url : 'https://www.tudooclub.com.br/wp-content/uploads/2020/08/Padrao-Capa-Anuncio-Site-Sem-foto.png'}
                             price = {`R$ ${advertisement.price.toFixed(2).replace(".", ",")}`}
