@@ -6,7 +6,7 @@ import api from '../../services/api'
 
 import {css} from '@emotion/core'
 import LoadingAnimation from 'react-spinners/SyncLoader'
-import {toast, ToastContainer} from 'react-toastify'
+import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import {useAuth} from '../../contexts/Auth'
 import {Confirm} from 'react-st-modal'
@@ -24,7 +24,9 @@ const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
         if (confirm) {
             try {
                 setLoading(true)
-                await api.delete(`/adverts/${id}`)
+                await api.delete(`/announcements/${id}`)
+
+                toast.success("Anúncio excluído com sucesso")
     
                 const adverts = data.adverts.filter(advertisement => advertisement.id !== id)
     
@@ -32,8 +34,6 @@ const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
                     ...data,
                     adverts
                 })
-    
-                toast.success("Anúncio excluído com sucesso")
             } catch (err) {
                 toast.error(err.response.data.message)
             }
@@ -69,7 +69,6 @@ const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
                 </div> : "Excluir"}</Button>
                 </div>
             </div>
-            <ToastContainer/>
         </Container>
     )
 }

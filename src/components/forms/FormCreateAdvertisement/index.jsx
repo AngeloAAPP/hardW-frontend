@@ -64,7 +64,7 @@ const FormCreateAdvertisement = ({images}) => {
 
 
         try {
-            const response = await api.post('/adverts', data)
+            const response = await api.post('/announcements', data)
             toast.success("cadastrado com sucesso")
 
 

@@ -68,9 +68,10 @@ export const Nav = styled.nav`
                 cursor: pointer;
 
                 img{
-                    max-height: 100%;
-                    max-width: 100%;
+                    height: 100%;
+                    width: 100%;
                     border-radius: 50%;
+                    object-fit: cover;
                     border: 1px solid var(--primary);
                 }
             }

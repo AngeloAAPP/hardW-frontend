@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container} from './styles'
 import Card from '../CardEditableAdvertisement'
-
+import {ToastContainer} from 'react-toastify'
 import {useAuth} from '../../contexts/Auth'
 
 const MyAdverts = () => {
@@ -28,6 +28,7 @@ const MyAdverts = () => {
                     } 
                 </> : <p>Nenhum anúncio cadastrado</p>
             }
+            <ToastContainer/>
         </Container>
     )
 }
