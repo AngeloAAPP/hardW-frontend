@@ -40,7 +40,7 @@ const FormCreateAdvertisement = ({images}) => {
     }
 
     async function createAdvertisement(){
-        if(selectedCategorie == "")
+        if(selectedCategorie === "")
         {
             toast.error("Selecione a categoria do anúncio")
             return
