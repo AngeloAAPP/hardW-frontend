@@ -5,7 +5,7 @@ import Home from './pages/home'
 import Login from './pages/login'
 import Register from './pages/register'
 import Profile from './pages/profile'
-import Advertisement from './pages/advertisement'
+import CreateAdvertisement from './pages/createAdvertisement'
 
 const routes = () => {
     return (
@@ -14,7 +14,7 @@ const routes = () => {
             <Route path = "/login" component = {Login} exact/>
             <Route path = "/register" component = {Register} exact/>
             <Route path = "/profile" component = {Profile} exact/>
-            <Route path = "/newAdvertisement" component = {Advertisement} exact/>
+            <Route path = "/newAdvertisement" component = {CreateAdvertisement} exact/>
         </BrowserRouter>
     )
 }
