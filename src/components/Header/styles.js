@@ -218,6 +218,10 @@ export const Nav = styled.nav`
                         width: 100px;
                     }
                 }
+
+                &.margintop{
+                    margin-top: ${props => !props.mobile? '20px' : '0px'};
+                }
              }
         }
 
