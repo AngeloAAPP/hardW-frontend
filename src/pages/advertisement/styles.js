@@ -102,6 +102,107 @@ export const Content = styled.div`
             }
         }
     }
+
+    .questions-container{
+
+        background: var(--white);
+        padding: 20px;
+        border-radius: 8px;
+
+        .ask, .to-reply{
+            display: flex;
+            margin-bottom: 20px;
+
+            input, button{
+                height: 60px;
+                background: var(--gray-light);
+
+                @media(max-width: 800px){
+                    height: 40px;
+                }
+            }
+
+            input{
+                font-size: 16px;
+
+                @media(max-width: 800px){
+                    font-size: 12px;
+                }
+
+                &::placeholder{
+                    color: var(--label-advert);
+                }
+            }
+            
+            button{
+                max-width: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 5px;
+                color: var(--primary-dark);
+
+                @media(max-width: 800px){
+                    max-width: 40px;
+
+                    svg{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .to-reply{
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        .question{
+            margin-bottom: 20px;
+
+            .content, .answer{
+                display: flex;
+                align-items: center;
+
+                svg{
+                    color: var(--primary);
+                    font-size: 24px;
+                    margin-right: 15px;
+                    flex-shrink: 0;
+                }
+
+                p{
+                    font-weight: 550;
+                    font-size: 16px;
+                    overflow-wrap: anywhere;
+
+                    time{
+                        font-size: 12px;
+                        color: var(--label-advert);
+                        margin-left: 5px;
+                        font-weight: 400;
+                    }
+
+                }
+            }
+
+            .answer{
+                margin-left: 35px;
+                margin-top: 5px;
+
+                @media(max-width: 800px){
+                    margin-top: 15px;
+                }
+
+                p{
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: var(--label-advert);
+                    overflow-wrap: anywhere;
+                }
+            }
+        }
+    }
 `
 
 export const Grid = styled.div`

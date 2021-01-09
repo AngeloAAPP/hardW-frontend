@@ -2,6 +2,9 @@ import React from 'react'
 import {Container, Content, Grid} from './styles'
 import Header from '../../components/Header'
 import AdvertiserCard from '../../components/AdvertiserCard'
+import Button from '../../components/Button'
+import Input from '../../components/Input'
+import {MdSend, MdMessage, MdComment} from 'react-icons/md'
 
 const Advertisement = () => {
 
@@ -60,7 +63,44 @@ const Advertisement = () => {
                </div>
                <h1 className="session-title">Perguntas</h1>
                <div className="questions-container">
-                 
+                 <div className="ask">
+                    <Input placeholder = "Escreva sua pergunta"/>
+                    <Button><MdSend/></Button>
+                 </div>
+                 <div className="question">
+                    <div className="content">
+                        <MdMessage/>
+                        <p>É compatível com i7 3770k?<time>12/08/2020 08:47</time></p>
+                    </div>
+                    <div className="to-reply">
+                        <Input placeholder = "Responder"/>
+                        <Button><MdSend/></Button>
+                    </div>
+                 </div>
+                 <div className="question">
+                    <div className="content">
+                        <MdMessage/>
+                        <p>Produto ja sofreu algum tipo de reparo?? <time>12/08/2020 08:47</time></p>
+                        
+                    </div>
+                    <div className="answer">
+                        <MdComment/>
+                        <p>Olá, produto nunca sofreu nenhum tipo de reparo, apenas manutenções preventivas <time>10/08/2020 17:33</time></p>
+                        
+                    </div>
+                 </div>
+                 <div className="question">
+                    <div className="content">
+                        <MdMessage/>
+                        <p>Como funciona a entrega? envia pelos correios? pode retirar pessoalmente? ou faz a entrega
+na minha casa? <time>12/08/2020 08:47</time></p>
+                        
+                    </div>
+                    <div className="answer">
+                        <MdComment/>
+                        <p>A gente pode combinar um ponto de entrega ou precisaria retirar na minha casa... Não faço entrega e infelizmente não envio pelos correios.<time>10/08/2020 17:33</time></p>
+                    </div>
+                 </div>
                </div>
             </Content>
         </Container>
