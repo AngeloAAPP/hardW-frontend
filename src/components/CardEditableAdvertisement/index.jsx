@@ -10,11 +10,14 @@ import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import {useAuth} from '../../contexts/Auth'
 import {Confirm} from 'react-st-modal'
+import {useHistory} from 'react-router-dom'
 
 const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
     
     const {data, updateUserData} = useAuth()
     const [loading, setLoading] = useState(false)
+
+    const history = useHistory()
 
     async function deleteAdvertisement(id){
 
@@ -41,8 +44,12 @@ const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
         }
     }
 
+    function showAnnouncement(){
+        history.push(`/advertisement/${id}`)
+    }
+
     return (
-        <Container>
+        <Container onClick = {showAnnouncement}>
             <div className="content">
                 <div className="image">
                     <img src={image} alt="teste"/>

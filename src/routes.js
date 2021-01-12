@@ -16,7 +16,7 @@ const routes = () => {
             <Route path = "/register" component = {Register} exact/>
             <Route path = "/profile" component = {Profile} exact/>
             <Route path = "/newAdvertisement" component = {CreateAdvertisement} exact/>
-            <Route path = "/advertisement" component = {Advertisement} exact/>
+            <Route path = "/advertisement/:id" component = {Advertisement} exact/>
         </BrowserRouter>
     )
 }
