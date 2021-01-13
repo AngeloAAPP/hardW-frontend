@@ -203,6 +203,11 @@ export const Content = styled.div`
             }
         }
     }
+        span{
+            display: block;
+            margin-bottom: 10px;
+            color: var(--label-advert);
+        }
 `
 
 export const Grid = styled.div`

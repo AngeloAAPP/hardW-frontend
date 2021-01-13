@@ -56,6 +56,7 @@ const AuthContext = ({children}) => {
                 createdAt
             }
 
+            setID(userID)
             setData(data)
             setAuthenticated(true)
         } catch (error) {

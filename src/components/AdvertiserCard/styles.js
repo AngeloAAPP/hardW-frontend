@@ -17,6 +17,11 @@ export const Container = styled.div`
         p{
             color: var(--label-advert);
             text-align: center;
+            
+            svg{
+                color: var(--green-whatsapp);
+                font-size: 16px;
+            }
         }
 
         button{

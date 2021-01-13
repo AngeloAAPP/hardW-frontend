@@ -4,10 +4,11 @@ import {MdInsertEmoticon} from 'react-icons/md'
 import {FaWhatsapp} from 'react-icons/fa'
 import {useAuth} from '../../contexts/Auth'
 import Button from '../Button'
+import {MdCheck} from 'react-icons/md'
 
 const AdvertiserCard = ({user}) => {
 
-    const {authenticated} = useAuth()
+    const {authenticated, id} = useAuth()
 
     const months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
     const createdAt = new Date(user.createdAt)
@@ -23,7 +24,7 @@ const AdvertiserCard = ({user}) => {
                 <span>Na HardW desde {months[createdAt.getMonth()]} de {createdAt.getFullYear()} <MdInsertEmoticon/></span>
             </Content>
             <div className = "contact">
-                {!authenticated ? <p>Faça login para visualizar o whatsapp</p> : <Button><FaWhatsapp/><div className="text">WhatsApp</div></Button>}
+                {!authenticated ? <p>Faça login para visualizar o whatsapp</p> : <>{user.id === id ? <p>Sou eu! <MdCheck/></p> : <Button><FaWhatsapp/><div className="text">WhatsApp</div></Button>}</>}
             </div>
         </Container>
     )
