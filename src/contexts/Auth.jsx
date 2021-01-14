@@ -60,9 +60,6 @@ const AuthContext = ({children}) => {
             setData(data)
             setAuthenticated(true)
         } catch (error) {
-
-            console.log("sessao exp: ", error)
-
             localStorage.removeItem("authorization")
             localStorage.removeItem("refresh")
             localStorage.removeItem("id")

@@ -41,8 +41,6 @@ const FormEditUser = () => {
         fillData()
     }, [])
 
-    console.log(city)
-
     async function update(){
 
         if(city === "" || uf === "")

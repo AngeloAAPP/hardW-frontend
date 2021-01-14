@@ -44,9 +44,6 @@ const FormUserImage = ({changeForm}) => {
             const {refresh} = response.headers
             const {id} = response.data.user
 
-            console.log(refresh)
-            console.log(id)
-
             localStorage.setItem("refresh", refresh)
             localStorage.setItem("id", id)
 

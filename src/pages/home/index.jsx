@@ -18,6 +18,8 @@ const Home = () => {
     const [showFiltersMobile, setShowFiltersMobile] = useState(false)
     const [announcements, setAnnouncements] = useState([])
     const [loadingAnnouncements, setLoadingAnnouncements] = useState(false)
+    const [refresh, setRefresh] = useState(false)
+
     useEffect(() => {
 
         async function getData() {
@@ -25,7 +27,47 @@ const Home = () => {
             setLoadingAnnouncements(true)
 
             try {
-                const res = await api.get('/announcements')
+                let params = {}
+
+                //Verifica se existe filtro de categoria
+                try {
+                    let category = Array
+                                    .prototype
+                                    .slice
+                                    .call(document.getElementsByName('category'))
+                                    .filter(category => category.checked)[0]
+                                    .value
+
+                    if(category !== "%")
+                        params.categoryID = category
+
+                } catch (err) {}
+
+                //verifica se existe filtro de subcategoria
+                try {
+                    let subcategory = Array
+                                        .prototype
+                                        .slice
+                                        .call(document.getElementsByName('subcategory'))
+                                        .filter(subcategory => subcategory.checked)[0]
+                                        .value
+
+                    if(subcategory !== "%")
+                        params.subcategoryID = subcategory
+
+                } catch (err) {}
+               
+                //verifica se existe filtro de cidade
+                if(city !== "")
+                    params.city = city
+
+                //verifica se existe filtro de estado
+                if(uf !== "")
+                    params.uf = uf
+
+                const res = await api.get('/announcements',{
+                    params
+                })
                 setAnnouncements(res.data)
             } catch (err) {
                 console.log("erro: ", err)
@@ -34,7 +76,7 @@ const Home = () => {
         }
 
         getData()
-    }, [])
+    }, [refresh])
 
     return (
         <Container>
@@ -45,7 +87,7 @@ const Home = () => {
                     <div className="seletores">
                         <ComboboxUF uf = {uf} setUF = {setUF}/>
                         <ComboboxCity uf = {uf} city = {city} setCity = {setCity}/>
-                        <div className = "search">
+                        <div className = "search" onClick = {() => setRefresh(!refresh)}>
                             <FaSearch/>
                         </div>  
                     </div>
@@ -63,7 +105,7 @@ const Home = () => {
                             <summary>Categorias</summary>
                             <div className = "options">
                                 <div className = "option">
-                                    <input type="radio" name="category" id="allCategories" value = "%"/>
+                                    <input type="radio" name="category" id="allCategories" defaultChecked value = "%"/>
                                     <label htmlFor="allCategories">Todas</label>
                                 </div>
                                 <div className = "option">
@@ -113,20 +155,20 @@ const Home = () => {
                         <details open>
                             <summary>Subcategorias</summary>
                             <div className = "options">
-                            <div className = "option">
-                                    <input type="radio" name="subcategory" id="allSubcategories" value = "%"/>
+                                <div className = "option">
+                                    <input type="radio" name="subcategory" id="allSubcategories" defaultChecked value = "%"/>
                                     <label htmlFor="allSubcategories">Todas</label>
                                 </div>
                                 <div className = "option">
-                                    <input type="radio" name="subcategory" id="amd" value = "amd"/>
+                                    <input type="radio" name="subcategory" id="amd" value = "2"/>
                                     <label htmlFor="amd">amd</label>
                                 </div>
                                 <div className = "option">
-                                    <input type="radio" name="subcategory" id="intel" value = "intel"/>
+                                    <input type="radio" name="subcategory" id="intel" value = "1"/>
                                     <label htmlFor="intel">intel</label>
                                 </div>
                                 <div className = "option">
-                                    <input type="radio" name="subcategory" id="nvidia" value = "nvidia"/>
+                                    <input type="radio" name="subcategory" id="nvidia" value = "3"/>
                                     <label htmlFor="nvidia">nvidia</label>
                                 </div>
                                 
@@ -141,7 +183,7 @@ const Home = () => {
                             </div>
                         </details>
 
-                        <Button type = "button">Filtrar</Button>
+                        <Button type = "button" onClick = {() => setRefresh(!refresh)}>Filtrar</Button>
                     </form>
 
                 </Filters>

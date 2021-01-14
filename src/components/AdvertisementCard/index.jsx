@@ -6,7 +6,6 @@ const AdvertisementCard = ({id,title, image, price, timestamp, neighbourhood, ci
     const history = useHistory()
 
     function showAnnouncement(){
-        console.log("executoy")
         history.push(`/advertisement/${id}`)
     }
     return (
