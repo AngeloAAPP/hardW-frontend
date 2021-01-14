@@ -1,9 +1,16 @@
 import React from 'react'
 import {Container} from './styles'
+import {useHistory} from 'react-router-dom'
 
-const AdvertisementCard = ({title, image, price, timestamp, neighbourhood, city, uf}) => {
+const AdvertisementCard = ({id,title, image, price, timestamp, neighbourhood, city, uf}) => {
+    const history = useHistory()
+
+    function showAnnouncement(){
+        console.log("executoy")
+        history.push(`/advertisement/${id}`)
+    }
     return (
-        <Container>
+        <Container onClick = {showAnnouncement}>
             <div className="content">
                 <div className="image">
                     <img src={image} alt="teste"/>

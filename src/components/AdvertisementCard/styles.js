@@ -4,6 +4,7 @@ export const Container = styled.div`
     background: var(--white);
     padding: 15px;
     border-radius: 8px;
+    cursor: pointer;
     
 
     @media(max-width: 800px){

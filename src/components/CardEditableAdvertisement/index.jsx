@@ -44,15 +44,17 @@ const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
         }
     }
 
-    function showAnnouncement(){
-        history.push(`/advertisement/${id}`)
+    function showAnnouncement(e){
+
+        if(e.target.type !== 'button')
+            history.push(`/advertisement/${id}`)
     }
 
     return (
         <Container onClick = {showAnnouncement}>
             <div className="content">
                 <div className="image">
-                    <img src={image} alt="teste"/>
+                    <img src={image} alt="imagem do anúncio"/>
                 </div>
                 <div className="info">
                 <h1>{title}</h1>

@@ -153,6 +153,12 @@ export const Adverts = styled.section`
     align-self: flex-start;
     border-radius: 8px;
 
+    .notice{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+
     @media(max-width: 800px){
         background: initial;
     }

@@ -1,22 +1,40 @@
-import React, {useState} from 'react'
-import {Container, FindAdvertsLocation, Main, Filters, Adverts, Action} from './styles'
+import React, {useState, useEffect} from 'react'
+import {Container, FindAdvertsLocation, Main, Filters, Adverts} from './styles'
 import {FaFilter, FaSearch} from 'react-icons/fa'
-
 import Header from '../../components/Header'
-
 import ComboboxUF from '../../components/ComboboxUF'
 import ComboboxCity from '../../components/ComboboxCity'
-
 import Button from '../../components/Button'
-
 import AdvertisementCard from '../../components/AdvertisementCard'
+import api from '../../services/api'
+import {css} from '@emotion/core'
+import LoadingAnimation from 'react-spinners/SyncLoader'
+
 
 const Home = () => {
 
-    
     const [uf, setUF] = useState("")
     const [city, setCity] = useState("")
     const [showFiltersMobile, setShowFiltersMobile] = useState(false)
+    const [announcements, setAnnouncements] = useState([])
+    const [loadingAnnouncements, setLoadingAnnouncements] = useState(false)
+    useEffect(() => {
+
+        async function getData() {
+
+            setLoadingAnnouncements(true)
+
+            try {
+                const res = await api.get('/announcements')
+                setAnnouncements(res.data)
+            } catch (err) {
+                console.log("erro: ", err)
+            }
+            setLoadingAnnouncements(false)
+        }
+
+        getData()
+    }, [])
 
     return (
         <Container>
@@ -128,37 +146,36 @@ const Home = () => {
 
                 </Filters>
                 <Adverts>
-                    <AdvertisementCard title = "Placa mãe para intel socket 1155 "
-                      image = "https://http2.mlstatic.com/D_NQ_NP_838032-MLB42699520512_072020-W.jpg"
-                       price = "R$ 120,00"
-                      timestamp = "Publicado em: 07/08/2020 16:20"
-                      neighbourhood = "Vila Lemos"
-                      city = "Campinas"
-                      uf = "SP"/>
-
-                    <AdvertisementCard title = "Placa mãe "
-                                    image = "https://img.olx.com.br/images/15/156064801212382.jpg"
-                                    price = "R$ 120,00"
-                                    timestamp = "Publicado em: 07/08/2020 16:20"
-                                    neighbourhood = "Vila Lemos"
-                                    city = "Campinas"
-                                    uf = "SP"/>
-
-                    <AdvertisementCard title = "Placa mãe para intel socket 1155 "
-                                        image = "https://s.glbimg.com/po/tt/f/original/2012/02/27/memory_module_ddram_20-03-2006.jpg"
-                                        price = "R$ 120,00"
-                                        timestamp = "Publicado em: 07/08/2020 16:20"/>
-
-                    <AdvertisementCard title = "Placa mãe para intel socket 1155 "
-                                        image = "https://photos.enjoei.com.br/public/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy83ODY1OTkwLzAxNDVkOWM5OGM2MTExODE1NTIxODM2ODI4YzhhMGI4LmpwZw"
-                                        price = "R$ 120,00"
-                                        timestamp = "Publicado em: 07/08/2020 16:20"/>
-
-                    <AdvertisementCard title = "Placa mãe para intel socket 1155 "
-                                        image = "https://http2.mlstatic.com/D_NQ_NP_838032-MLB42699520512_072020-W.jpg"
-                                        price = "R$ 120,00"
-                                        timestamp = "Publicado em: 07/08/2020 16:20"/>
-              
+                    {loadingAnnouncements && 
+                        <div className = "notice">
+                            <span>Carregando anúncios</span>
+                            <div className="sweet-loading">
+                                <LoadingAnimation
+                                    css={css`
+                                    width: 100%;
+                                    margin-left: 15px;
+                                    `}
+                                    color={"#F99615"}
+                                    loading={loadingAnnouncements}
+                                />
+                            </div>
+                        </div>}
+                    {!loadingAnnouncements && announcements.length > 0 && announcements.map(announcement => 
+                        <AdvertisementCard 
+                            key = {announcement.id}
+                            id = {announcement.id}
+                            title = {announcement.name}
+                            image = {announcement.images.length > 0 ? announcement.images[0].url : 'https://www.tudooclub.com.br/wp-content/uploads/2020/08/Padrao-Capa-Anuncio-Site-Sem-foto.png'}
+                            price = {`R$ ${announcement.price.toFixed(2).replace(".", ",")}`}
+                            timestamp = {`Publicado em: ${new Date(announcement.createdAt).toLocaleString('pt-br')}`}  
+                            neighbourhood = {announcement.user.address.neighbourhood}
+                            city = {announcement.user.address.city}
+                            uf = {announcement.user.address.uf}  
+                        />
+                    )}
+                    {!loadingAnnouncements && announcements.length === 0 && 
+                        <div className = "notice">Nenhum anúncio encontrado.</div>
+                    }
                 </Adverts>
             </Main>
         </Container>
