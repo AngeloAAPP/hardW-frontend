@@ -25,6 +25,33 @@ export const Container = styled.form`
         }
     }
 
+    .avatar{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: relative;
+
+        img{
+            width: 100%;
+            height: 100%; 
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-dark);
+        }
+    }
+
+    .btn-avatar{
+        margin: 0 auto;
+        margin-top: 8px;
+        padding: 0 5px;
+    }
+
+    .buttons{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
     .edit{
         position: absolute;
         right: 15px;
@@ -45,7 +72,6 @@ export const Container = styled.form`
         align-items: center;
         font-size: 14px;
         color: var(--black-light);
-        margin-top: -20px;
         margin-bottom: 10px;
 
         svg{
