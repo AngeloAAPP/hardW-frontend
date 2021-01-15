@@ -45,6 +45,16 @@ export const Container = styled.form`
         color: ${props => props.locked ? 'var(--placeholder-input-white)' : 'var(--black-light)'}
     }
 
+    input{
+        width: 100%;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        outline: none;
+        margin-bottom: 5px;
+
+    }
+
     button{
         max-width: 100px;
         max-height: 50px;

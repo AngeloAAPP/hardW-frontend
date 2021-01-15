@@ -64,9 +64,15 @@ export const Container = styled.form`
     }
 
     input{
+        width: 100%;
         background: var(--gray-light);
         height: 70px;
         color: ${props => props.locked ? 'var(--placeholder-input-white)' : 'var(--black-light)'};
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        outline: none;
+        margin-bottom: 5px;
 
         &.notEditable{
             color: var(--placeholder-input-white);

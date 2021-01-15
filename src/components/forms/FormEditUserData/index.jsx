@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import {useAuth} from '../../../contexts/Auth'
 import api from '../../../services/api'
+import InputMask from "react-input-mask"; 
 
 const FormEditUser = () => {
 
@@ -94,7 +95,7 @@ const FormEditUser = () => {
                 </div>
                 <Input placeholder = "Nome" value = {name} onChange = {(e) => setName(e.target.value)} disabled = {locked}/>
                 <Input placeholder = "Último nome" value = {lastName} onChange = {(e) => setLastName(e.target.value)} disabled = {locked}/>
-                <Input placeholder = "Whatsapp" value = {whatsapp} onChange = {(e) => setWhatsapp(e.target.value)} disabled = {locked}/>
+                <InputMask mask = "(99)99999-9999" placeholder = "Whatsapp" value = {whatsapp} onChange = {(e) => setWhatsapp(e.target.value)} disabled = {locked}/>
                 <Input className = "notEditable" value = {data.email} disabled/>
                 <span className = "note">
                     Não é possível alterar o e-mail!

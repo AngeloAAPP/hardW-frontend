@@ -27,6 +27,27 @@ export const Container = styled.form`
         }
     }
 
+    input{
+        width: 100%;
+        height: 90px;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        outline: none;
+        margin-bottom: 5px;
+        color: var(--black-light);
+
+        @media(max-width: 800px){
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+    
+    
+        &::placeholder{
+            color: var(--placeholder-input-white)
+        }
+    }
+
     select{
         background-color: var(--white);
     }

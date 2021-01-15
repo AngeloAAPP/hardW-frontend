@@ -9,6 +9,7 @@ import ComboboxCity from '../../ComboboxCity'
 import Button from '../../Button'
 import {FaArrowLeft} from 'react-icons/fa'
 import {useFormRegister} from '../../../contexts/FormRegister'
+import InputMask from "react-input-mask"; 
 
 const FormUserAddress = ({changeForm}) => {
 
@@ -48,7 +49,7 @@ const FormUserAddress = ({changeForm}) => {
                 <FaArrowLeft/>
                 Voltar
             </span>
-            <Input placeholder = "Cep" value = {zipcode} onBlur = {findAddressbyZipcode} onChange = {(e) => setZipcode(e.target.value)}/>
+            <InputMask mask = "99999-999" placeholder = "Cep" value = {zipcode} onBlur = {findAddressbyZipcode} onChange = {(e) => setZipcode(e.target.value)}/>
             <Input placeholder = "Rua" value = {street} onChange = {(e) => setStreet(e.target.value)}/>
             <Input placeholder = "Bairro" value = {neighbourhood} onChange = {(e) => setNeighbourhood(e.target.value)}/>
             <ComboboxUF uf = {uf} setUF = {setUF}/>

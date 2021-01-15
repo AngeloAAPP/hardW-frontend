@@ -13,6 +13,7 @@ import {css} from '@emotion/core'
 import LoadingAnimation from 'react-spinners/SyncLoader'
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import InputMask from "react-input-mask"; 
 
 
 const FormEditUser = () => {
@@ -94,7 +95,7 @@ const FormEditUser = () => {
                 <FaEdit className = "edit" title = "Editar" onClick = {() => setLocked(false)}/>
             </div>
 
-            <Input placeholder = "Cep" value = {zipCode} onChange = {(e) => setZipCode(e.target.value)} disabled = {locked}/>
+            <InputMask mask = "99999-999" placeholder = "Cep" value = {zipCode} onChange = {(e) => setZipCode(e.target.value)} disabled = {locked}/>
             <Input placeholder = "Rua" value = {street}  onChange = {(e) => setStreet(e.target.value)} disabled = {locked}/>
             <Input placeholder = "Bairro" value = {neighbourhood} onChange = {(e) => setNeighbourhood(e.target.value)} disabled = {locked}/>
             <ComboboxUF uf = {uf} setUF = {setUF} setCity = {setCity} disabled = {locked}/>
