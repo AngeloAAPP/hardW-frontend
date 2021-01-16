@@ -9,12 +9,12 @@ import {useAuth} from '../../contexts/Auth'
 const Advertisement = () => {
 
     const history = useHistory()
-    const {authenticated} = useAuth()
+    const {authenticated, loading} = useAuth()
 
     const [images, setImages] = useState([])
 
-    if(!authenticated)
-        history.push('/login')
+    if(!authenticated && !loading)
+        history.push('/login?redirect=newAdvertisement')
 
     return (
         <>

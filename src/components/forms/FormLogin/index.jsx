@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {useAuth} from '../../../contexts/Auth'
 
 
-const FormLogin = ({changeForm}) => {
+const FormLogin = ({changeForm, redirect}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,7 +32,8 @@ const FormLogin = ({changeForm}) => {
         try {
             await signIn(email, password)
             setLoading(false)
-            history.push('/')
+            let page = redirect ? `/${redirect}` : '/' 
+            history.push(page)
         } catch (err) {
             toast.error(err.toString())
         }

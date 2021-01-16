@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
-import {useHistory} from 'react-router-dom'
-
+import {useHistory, useLocation} from 'react-router-dom'
 import {Container ,Grid, Menu} from './styles'
 import Header from '../../components/Header'
 import FormEditUserData from '../../components/forms/FormEditUserData'
@@ -8,19 +7,20 @@ import FormEditUserAddress from '../../components/forms/FormEditUserAddress'
 import MyAdverts from '../../components/MyAdverts'
 import FormEditPassword from '../../components/forms/FormEditPassword'
 import FormDeleteAccount from '../../components/forms/FormDeleteAccount'
-
 import {useAuth} from '../../contexts/Auth'
-
 
 const Profile = () => {
 
     const history = useHistory()
-    const {authenticated} = useAuth()
+    const {authenticated , loading} = useAuth()
 
-    if(!authenticated)
-        history.push('/login')
+    if(!authenticated && !loading)
+        history.push('/login?redirect=profile')
 
-    const [form, setForm] = useState("FormEditUserData")
+    let queryParam = new URLSearchParams(useLocation().search).get("view");
+    let initialMenu = queryParam? queryParam : "FormEditUserData"
+
+    const [form, setForm] = useState(initialMenu)
 
     return (
         <Container>

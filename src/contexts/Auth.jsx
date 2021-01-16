@@ -8,7 +8,7 @@ const AuthContext = ({children}) => {
 
     const [authenticated, setAuthenticated] = useState(false)
     const [id, setID] = useState("")
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     //Data = name, lastName, whatsapp, avatarUrl, etc
     const [data, setData] = useState({})
@@ -20,7 +20,6 @@ const AuthContext = ({children}) => {
     
 
         async function isAuthenticated(){
-            setLoading(true)
             await getProfileData(userID)
             setLoading(false)
         }
@@ -29,6 +28,8 @@ const AuthContext = ({children}) => {
             api.defaults.headers.uID = userID
             isAuthenticated()
         }
+        else
+            setLoading(false)
             
     }, [])
 
@@ -207,6 +208,7 @@ const AuthContext = ({children}) => {
             id,
             data,
             updateUserData,
+            loading
         }}>
             {loading ? <LoadingAnimation/> : children}
         </context.Provider>
@@ -215,11 +217,11 @@ const AuthContext = ({children}) => {
 
 export function useAuth(){
     const {
-        authenticated, signIn, signOut, id, data, updateUserData
+        authenticated, signIn, signOut, id, data, updateUserData, loading
     } = useContext(context)
 
     return {
-        authenticated, signIn, signOut, id, data, updateUserData
+        authenticated, signIn, signOut, id, data, updateUserData, loading
     }
 }
 

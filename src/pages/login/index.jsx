@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link, useHistory, useLocation} from 'react-router-dom'
 
 import {Container, LeftSide, RightSide} from './styles'
 import Logo from '../../assets/logo.png'
@@ -15,6 +15,8 @@ const Login = () => {
     if(authenticated)
         history.push('/')
 
+    let queryParam = new URLSearchParams(useLocation().search).get("redirect");
+
     const [form, setForm] = useState("Login")
 
     return (
@@ -26,7 +28,7 @@ const Login = () => {
             </LeftSide>
             <RightSide>
                 {form === 'Login' ?  
-                        <FormLogin changeForm = {setForm}/> 
+                        <FormLogin changeForm = {setForm} redirect = {queryParam}/> 
                     : 
                         <FormForgotPassword changeForm = {setForm}/>}
                 

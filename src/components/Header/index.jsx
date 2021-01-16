@@ -44,7 +44,7 @@ const Header = () => {
                                     <span>{`${data.name} ${data.lastName}`}</span>
                                     <ul>
                                         <li><Link to = "/profile" className = "radius-top">Editar perfil</Link></li>
-                                        <li><Link to = "/login">Meus anúncios</Link></li>
+                                        <li><Link to = "/profile?view=MyAdverts" >Meus anúncios</Link></li>
                                         <li><strong className = "radius-bottom" onClick = {handleSignOut}>Sair</strong></li>
                                     </ul>
                                 </li>
