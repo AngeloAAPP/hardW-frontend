@@ -9,7 +9,7 @@ import AdvertisementCard from '../../components/AdvertisementCard'
 import api from '../../services/api'
 import {css} from '@emotion/core'
 import LoadingAnimation from 'react-spinners/SyncLoader'
-
+import CurrencyInput from 'react-currency-input'
 
 const Home = () => {
 
@@ -19,6 +19,10 @@ const Home = () => {
     const [announcements, setAnnouncements] = useState([])
     const [loadingAnnouncements, setLoadingAnnouncements] = useState(false)
     const [refresh, setRefresh] = useState(false)
+    const [minPrice, setMinPrice] = useState(null)
+    const [maxPrice, setMaxPrice] = useState(null)
+
+    console.log(maxPrice)
 
     useEffect(() => {
 
@@ -64,6 +68,12 @@ const Home = () => {
                 //verifica se existe filtro de estado
                 if(uf !== "")
                     params.uf = uf
+
+                if(minPrice && minPrice !== "")
+                    params.min = minPrice
+
+                if(maxPrice && maxPrice !== "")
+                    params.max = maxPrice
 
                 const res = await api.get('/announcements',{
                     params
@@ -178,8 +188,36 @@ const Home = () => {
                         <details open>
                             <summary>Precos</summary>
                             <div className = "options">
-                                
-                                
+                                <div className = "option">
+                                    <CurrencyInput className = "input-price"
+                                        precision = "0"
+                                        thousandSeparator = "."
+                                        allowEmpty
+                                        placeholder = "Mínimo"
+                                        value = {minPrice}
+                                        maxLength="10"
+                                        onChangeEvent = {(e, maskedvalue) => {
+                                            setMinPrice(maskedvalue)
+
+                                            if(minPrice === "")
+                                                setMinPrice(null)
+                                        }} 
+                                    />
+                                    <CurrencyInput className = "input-price"
+                                        precision = "0"
+                                        thousandSeparator = "."
+                                        allowEmpty
+                                        placeholder = "Máximo"
+                                        value = {maxPrice}
+                                        maxLength="10"
+                                        onChangeEvent = {(e, maskedvalue) => {
+                                            setMaxPrice(maskedvalue)
+
+                                            if(maxPrice === "")
+                                                setMaxPrice(null)
+                                        }}  
+                                    />                                    
+                                </div>
                             </div>
                         </details>
 

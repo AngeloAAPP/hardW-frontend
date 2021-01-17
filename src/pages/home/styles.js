@@ -128,6 +128,22 @@ export const Filters = styled.section`
 
     .option{
         margin-top: 5px;
+
+        .input-price{
+            border: 1px solid var(--primary);
+            outline: none;
+            width: 100%;
+            border-radius: 8px;
+            padding: 5px 10px;
+            margin-bottom: 3px;
+
+            -moz-appearance: textfield;
+            appearance: textfield;
+
+            &::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+            }
+        }
     }
 
     label{
