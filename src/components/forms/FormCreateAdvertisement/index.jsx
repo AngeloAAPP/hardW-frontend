@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react'
 import {Container} from './styles'
 import Input from '../../Input'
+import CurrencyInput from 'react-currency-input'
 import Combobox from '../../Combobox'
 import Button from '../../Button'
-
 import {css} from '@emotion/core'
 import LoadingAnimation from 'react-spinners/SyncLoader'
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-
 import api from '../../../services/api'
 import {useAuth} from '../../../contexts/Auth'
+import {useHistory} from 'react-router-dom'
 
 const FormCreateAdvertisement = ({images}) => {
 
@@ -19,10 +19,11 @@ const FormCreateAdvertisement = ({images}) => {
     const [selectedSubCategorie, setSelectedSubCategorie] = useState("")
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
-    const [price, setPrice] = useState("")
+    const [price, setPrice] = useState("0")
     const [loading, setLoading] = useState(false) 
-
     const {updateUserData, data: dataProfile} = useAuth()
+
+    const history = useHistory()
 
     useEffect(() => {
 
@@ -45,12 +46,15 @@ const FormCreateAdvertisement = ({images}) => {
             toast.error("Selecione a categoria do anúncio")
             return
         }
+
+        let formatedPrice = price.split("R$")
+        formatedPrice = formatedPrice.length === 1 ? formatedPrice[0] : formatedPrice[1]
         
         const data = new FormData()
 
         data.append("name", title)
         data.append("description", description)
-        data.append("price", price)
+        data.append("price", formatedPrice)
         data.append("categoryID", selectedCategorie)
         
         if(selectedSubCategorie !== "")
@@ -65,8 +69,6 @@ const FormCreateAdvertisement = ({images}) => {
 
         try {
             const response = await api.post('/announcements', data)
-            toast.success("cadastrado com sucesso")
-
 
             updateUserData({...dataProfile, adverts: [
                 ...dataProfile.adverts,
@@ -83,6 +85,8 @@ const FormCreateAdvertisement = ({images}) => {
                     images: response.data.images,
                 }
             ]})
+
+            history.push('profile?view=MyAdverts&success=true')
         } catch (err) {
             console.log(err)
             toast.error(err.response.data.message)
@@ -96,8 +100,15 @@ const FormCreateAdvertisement = ({images}) => {
         <Container>
             <h1>Informações do anúncio</h1>
             <Input placeholder = "Título" value = {title} onChange = {(e) => setTitle(e.target.value)}/>
-            <Input placeholder = "Descrição" value = {description} onChange = {(e) => setDescription(e.target.value)}/>
-            <Input placeholder = "Preço (R$)" value = {price} onChange = {(e) => setPrice(e.target.value)}/>
+            <textarea placeholder = "Descrição" value = {description} onChange = {(e) => setDescription(e.target.value)}></textarea>
+            <CurrencyInput 
+                precision = "0" 
+                prefix = "R$ " 
+                thousandSeparator = "."
+                value = {price} 
+                onChangeEvent = {(e, maskedvalue) => setPrice(maskedvalue)}
+                maxLength="13"    
+            />
 
             <label>Selecione a categoria</label>
             <Combobox value = {selectedCategorie} onChange = {selectCategorie}>

@@ -208,7 +208,7 @@ const Home = () => {
                             id = {announcement.id}
                             title = {announcement.name}
                             image = {announcement.images.length > 0 ? announcement.images[0].url : 'https://www.tudooclub.com.br/wp-content/uploads/2020/08/Padrao-Capa-Anuncio-Site-Sem-foto.png'}
-                            price = {`R$ ${announcement.price.toFixed(2).replace(".", ",")}`}
+                            price = {`R$ ${announcement.price},00`}
                             timestamp = {`Publicado em: ${new Date(announcement.createdAt).toLocaleString('pt-br')}`}  
                             neighbourhood = {announcement.user.address.neighbourhood}
                             city = {announcement.user.address.city}

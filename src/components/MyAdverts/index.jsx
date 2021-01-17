@@ -1,12 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useLocation} from 'react-router-dom'
 import {Container} from './styles'
 import Card from '../CardEditableAdvertisement'
-import {ToastContainer} from 'react-toastify'
+import {toast,ToastContainer} from 'react-toastify'
 import {useAuth} from '../../contexts/Auth'
 
 const MyAdverts = () => {
 
     const {data} = useAuth()
+    let showSuccessCreateAnnouncement = new URLSearchParams(useLocation().search).get("success")
+
+    useEffect(() => {
+
+        if(showSuccessCreateAnnouncement)
+            toast.success("Anúncio cadastrado com sucesso!")
+    }, [])
+    
 
     return (
         <Container>
@@ -22,7 +31,7 @@ const MyAdverts = () => {
                             id = {advertisement.id}
                             title = {advertisement.name}
                             image = {advertisement.images.length > 0 ? advertisement.images[0].url : 'https://www.tudooclub.com.br/wp-content/uploads/2020/08/Padrao-Capa-Anuncio-Site-Sem-foto.png'}
-                            price = {`R$ ${advertisement.price.toFixed(2).replace(".", ",")}`}
+                            price = {`R$ ${advertisement.price},00`}
                             timestamp = {`Publicado em: ${datetime.toLocaleString('pt-br')}`}
                         />})
                     } 

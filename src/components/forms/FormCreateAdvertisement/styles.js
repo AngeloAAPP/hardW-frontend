@@ -17,6 +17,42 @@ export const Container = styled.form`
         margin-bottom: 20px;
     }
 
+    input{
+        width: 100%;
+        height: 90px;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        outline: none;
+
+        @media(max-width: 800px){
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+    
+    
+        &::placeholder{
+            color: var(--placeholder-input-white)
+        }
+    }
+
+    textarea{
+        resize: vertical;
+        min-height: 200px;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        outline: none;
+        background: var(--gray-light);
+        color: var(--black);
+        margin-bottom: 28px;
+        border: none;
+
+        &::placeholder {
+            color: var(--label-advert);
+        }
+    }
+
     input, select{
         background: var(--gray-light);
         color: var(--black);
