@@ -126,24 +126,31 @@ export const Filters = styled.section`
         padding-left: 10px;
     }
 
-    .option{
-        margin-top: 5px;
-
-        .input-price{
+    input[type=text]{
             border: 1px solid var(--primary);
             outline: none;
             width: 100%;
             border-radius: 8px;
             padding: 5px 10px;
             margin-bottom: 3px;
-
-            -moz-appearance: textfield;
-            appearance: textfield;
-
-            &::-webkit-inner-spin-button{
-                -webkit-appearance: none;
-            }
         }
+    
+    h3{
+        font-weight: 400;
+        font-size: 12px;
+        color: var(--label-advert);
+        margin: 8px 0;
+        display: flex;
+        align-items: center;
+
+        svg{
+            margin-right: 5px;
+            color: var(--primary-dark)
+        }
+    }
+
+    .option{
+        margin-top: 5px;
     }
 
     label{

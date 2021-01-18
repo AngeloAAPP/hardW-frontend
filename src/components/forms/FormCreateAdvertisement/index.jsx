@@ -71,7 +71,6 @@ const FormCreateAdvertisement = ({images}) => {
             const response = await api.post('/announcements', data)
 
             updateUserData({...dataProfile, adverts: [
-                ...dataProfile.adverts,
                 {
                     id: response.data.id,
                     name: response.data.name,
@@ -83,7 +82,8 @@ const FormCreateAdvertisement = ({images}) => {
                     updatedAt: response.data.updatedAt,
                     userID: response.data.userID,
                     images: response.data.images,
-                }
+                },
+                ...dataProfile.adverts
             ]})
 
             history.push('profile?view=MyAdverts&success=true')

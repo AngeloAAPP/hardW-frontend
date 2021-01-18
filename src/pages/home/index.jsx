@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Container, FindAdvertsLocation, Main, Filters, Adverts} from './styles'
-import {FaFilter, FaSearch} from 'react-icons/fa'
+import {FaFilter, FaSearch, FaSearchPlus} from 'react-icons/fa'
 import Header from '../../components/Header'
 import ComboboxUF from '../../components/ComboboxUF'
 import ComboboxCity from '../../components/ComboboxCity'
@@ -21,6 +21,7 @@ const Home = () => {
     const [refresh, setRefresh] = useState(false)
     const [minPrice, setMinPrice] = useState(null)
     const [maxPrice, setMaxPrice] = useState(null)
+    const [search, setSearch] = useState("")
 
     console.log(maxPrice)
 
@@ -32,6 +33,9 @@ const Home = () => {
 
             try {
                 let params = {}
+
+                if(search !== "")
+                    params.search = `%${search}%`
 
                 //Verifica se existe filtro de categoria
                 try {
@@ -111,6 +115,8 @@ const Home = () => {
                     </div>
                    
                     <form id = "filters">
+                        <h3><FaSearch/> O que você está buscando?</h3>
+                        <input type="text" value = {search} onChange = {(e) => setSearch(e.target.value)} placeholder = "Ex: core i7" maxLength = "50" spellCheck = "false"/>
                         <details open>
                             <summary>Categorias</summary>
                             <div className = "options">
