@@ -86,14 +86,14 @@ const Advertisement = ({ match }) => {
                 </div>
                 <Grid>
                     {/* Imagens do anúncio */}
-                    <div className="left-content">{announcementData.images.length > 0 && <>
+                    <div className="left-content">{announcementData.images.length > 0 ? <>
                         <div className="main-image">
                             <img src={announcementData.images[0].url} alt="imagem do anúncio" />
                         </div>
                         <div className="all-images">
                             {announcementData.images.map((image, i) => <img key={i} src={image.url} alt="imagem do anúncio" />)}
                         </div>
-                    </>}
+                    </> : <div className = "no-image"><p>O anunciante não adicionou imagens do produto</p></div>}
                         <div className="price">{`R$ ${announcementData.price.toFixed(2).replace(".", ",")}`}</div>
                     </div>
 

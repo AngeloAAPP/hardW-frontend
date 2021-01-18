@@ -9,6 +9,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-radius: 8px;
 
     .contact{
         width: 100%;

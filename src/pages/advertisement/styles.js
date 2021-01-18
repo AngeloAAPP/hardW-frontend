@@ -229,12 +229,28 @@ export const Grid = styled.div`
             align-items: center;
         }
 
+        .no-image{
+            width: 505px;
+            height: calc(100% - 43px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--placeholder-input-white);
+            border-radius: 8px;
+            min-height: 400px;
+
+            @media(max-width: 600px){
+                width: 100%;
+                min-height: 200px;
+            }
+        }
+
         .main-image{
             width: 505px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: gray;
+            background: var(--placeholder-input-white);
             border-radius: 8px;
             min-height: 400px;
 
