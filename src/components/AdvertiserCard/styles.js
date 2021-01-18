@@ -25,13 +25,16 @@ export const Container = styled.div`
             }
         }
 
-        button{
+        a{
             background-color: var(--green-whatsapp);
             height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 5px;
+            display: flex;
+            text-decoration: none;
+            color: white;
 
             .text{
                 font-size: 20px;
