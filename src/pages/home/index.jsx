@@ -23,8 +23,6 @@ const Home = () => {
     const [maxPrice, setMaxPrice] = useState(null)
     const [search, setSearch] = useState("")
 
-    console.log(maxPrice)
-
     useEffect(() => {
 
         async function getData() {

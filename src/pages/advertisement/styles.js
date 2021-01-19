@@ -252,17 +252,39 @@ export const Grid = styled.div`
             align-items: center;
             background: var(--placeholder-input-white);
             border-radius: 8px;
-            min-height: 400px;
+            height: 400px;
+            position: relative;
 
             @media(max-width: 600px){
                 width: 300px;
-                min-height: auto;
+                height: 300px;
             }
 
             img{
                 max-width: 100%;
                 max-height: 100%;
                 border-radius: 8px;
+            }
+
+            svg{
+                position: absolute;
+                font-size: 80px;
+                cursor: pointer;
+                color: white;
+                stroke: black;
+                stroke-width: 0.4px;
+
+                &.before{
+                    left: 0;
+                }
+
+                &.next{
+                    right: 0;
+                }
+
+                @media(max-width: 600px){
+                    font-size: 50px;
+                }
             }
         }
 
@@ -286,6 +308,10 @@ export const Grid = styled.div`
 
                 @media(max-width: 600px){
                     margin-top: 5px;
+                }
+
+                &.selected{
+                    border: 3px solid var(--primary);
                 }
             }
         }

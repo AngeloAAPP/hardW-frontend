@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import AdvertiserCard from '../../components/AdvertiserCard'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
-import { MdSend, MdMessage, MdComment } from 'react-icons/md'
+import { MdSend, MdMessage, MdComment, MdNavigateNext, MdNavigateBefore } from 'react-icons/md'
 import api from '../../services/api'
 import { useAuth } from '../../contexts/Auth'
 import { css } from '@emotion/core'
@@ -19,6 +19,7 @@ const Advertisement = ({ match }) => {
     const [loading, setLoading] = useState(false)
     const [refresh, setRefresh] = useState(false)
     const [buttonAnimation, setButtonAnimation] = useState("")
+    const [currentImage, setCurrentImage] = useState(0)
 
     useEffect(() => {
 
@@ -76,6 +77,20 @@ const Advertisement = ({ match }) => {
         setLoading(false)
     }
 
+    function nextImage(){
+        if(currentImage === announcementData.images.length - 1)
+            setCurrentImage(0)
+        else
+            setCurrentImage(currentImage + 1)
+    }
+
+    function beforeImage(){
+        if(currentImage === 0)
+            setCurrentImage(announcementData.images.length - 1)
+        else
+            setCurrentImage(currentImage - 1)
+    }
+
     return (
         <Container>
             <Header />
@@ -87,11 +102,19 @@ const Advertisement = ({ match }) => {
                 <Grid>
                     {/* Imagens do anúncio */}
                     <div className="left-content">{announcementData.images.length > 0 ? <>
-                        <div className="main-image">
-                            <img src={announcementData.images[0].url} alt="imagem do anúncio" />
+                        <div className="main-image">          
+                            <img src={announcementData.images[currentImage].url} alt="imagem do anúncio" />
+
+                            {announcementData.images.length > 1 && 
+                                <>
+                                    <MdNavigateBefore className = "before" onClick = {beforeImage}/>
+                                    <MdNavigateNext className = "next" onClick = {nextImage}/>
+                                </>
+                            }
+                            
                         </div>
                         <div className="all-images">
-                            {announcementData.images.map((image, i) => <img key={i} src={image.url} alt="imagem do anúncio" />)}
+                            {announcementData.images.map((image, i) => <img className = {currentImage === i ? "selected" : ""} key={i} src={image.url} onClick = {() => setCurrentImage(i)} alt="imagem do anúncio" />)}
                         </div>
                     </> : <div className = "no-image"><p>O anunciante não adicionou imagens do produto</p></div>}
                         <div className="price">{`R$ ${announcementData.price.toFixed(2).replace(".", ",")}`}</div>
