@@ -3,8 +3,9 @@ import {Container, Content} from './styles'
 import {MdInsertEmoticon} from 'react-icons/md'
 import {FaWhatsapp} from 'react-icons/fa'
 import {useAuth} from '../../contexts/Auth'
-import Button from '../Button'
 import {MdCheck} from 'react-icons/md'
+
+import NoAvatar from '../../assets/noAvatar.jpg'
 
 const AdvertiserCard = ({user}) => {
 
@@ -30,7 +31,7 @@ const AdvertiserCard = ({user}) => {
             <Content>
                 <h2>Anunciante</h2>
                 <div className="image">
-                    <img src={user.avatarUrl ? user.avatarUrl : "https://www.cvasolutions.com/wp-content/uploads/2017/03/sem-avatar.jpg"} alt="Foto do anunciante"/>
+                    <img src={user.avatarUrl ? user.avatarUrl : NoAvatar} alt="Foto do anunciante"/>
                 </div>
                 <h3>{user.name} {user.lastName}</h3>
                 <span>Na HardW desde {months[createdAt.getMonth()]} de {createdAt.getFullYear()} <MdInsertEmoticon/></span>

@@ -4,6 +4,7 @@ import {Container} from './styles'
 import Card from '../CardEditableAdvertisement'
 import {toast,ToastContainer} from 'react-toastify'
 import {useAuth} from '../../contexts/Auth'
+import NoImage from '../../assets/noImage.png'
 
 const MyAdverts = () => {
 
@@ -30,7 +31,7 @@ const MyAdverts = () => {
                             key = {advertisement.id}
                             id = {advertisement.id}
                             title = {advertisement.name}
-                            image = {advertisement.images.length > 0 ? advertisement.images[0].url : 'https://www.tudooclub.com.br/wp-content/uploads/2020/08/Padrao-Capa-Anuncio-Site-Sem-foto.png'}
+                            image = {advertisement.images.length > 0 ? advertisement.images[0].url : NoImage}
                             price = {`R$ ${advertisement.price},00`}
                             timestamp = {`Publicado em: ${datetime.toLocaleString('pt-br')}`}
                         />})

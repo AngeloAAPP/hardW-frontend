@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Container, FindAdvertsLocation, Main, Filters, Adverts} from './styles'
-import {FaFilter, FaSearch, FaSearchPlus} from 'react-icons/fa'
+import {FaFilter, FaSearch} from 'react-icons/fa'
 import Header from '../../components/Header'
 import ComboboxUF from '../../components/ComboboxUF'
 import ComboboxCity from '../../components/ComboboxCity'
@@ -10,6 +10,7 @@ import api from '../../services/api'
 import {css} from '@emotion/core'
 import LoadingAnimation from 'react-spinners/SyncLoader'
 import CurrencyInput from 'react-currency-input'
+import NoImage from '../../assets/noImage.png'
 
 const Home = () => {
 
@@ -249,7 +250,7 @@ const Home = () => {
                             key = {announcement.id}
                             id = {announcement.id}
                             title = {announcement.name}
-                            image = {announcement.images.length > 0 ? announcement.images[0].url : 'https://www.tudooclub.com.br/wp-content/uploads/2020/08/Padrao-Capa-Anuncio-Site-Sem-foto.png'}
+                            image = {announcement.images.length > 0 ? announcement.images[0].url : NoImage}
                             price = {`R$ ${announcement.price},00`}
                             timestamp = {`Publicado em: ${new Date(announcement.createdAt).toLocaleString('pt-br')}`}  
                             neighbourhood = {announcement.user.address.neighbourhood}

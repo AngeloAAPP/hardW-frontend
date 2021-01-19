@@ -3,6 +3,7 @@ import { Container, Content, Nav } from './styles'
 import { Link, useHistory } from 'react-router-dom'
 
 import Logo from '../../assets/logo.png'
+import NoAvatar from '../../assets/noAvatar.jpg'
 import Hamburguer from '../Hamburguer'
 import {useAuth} from '../../contexts/Auth'
 
@@ -39,7 +40,7 @@ const Header = () => {
                                 <li className="username"> <label>{`${data.name} ${data.lastName}`}</label> </li>
                                 <li className="avatar-menu">
                                     <div className="img" onClick={() => setHiddenMenu(!hiddenMenu)}>
-                                        <img src={data.avatarUrl ? data.avatarUrl : "https://www.cvasolutions.com/wp-content/uploads/2017/03/sem-avatar.jpg"} alt="avatar" />
+                                        <img src={data.avatarUrl ? data.avatarUrl : NoAvatar} alt="avatar" />
                                     </div>
                                     <span>{`${data.name} ${data.lastName}`}</span>
                                     <ul>
