@@ -44,6 +44,10 @@ const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
         }
     }
 
+    function edit(){
+        history.push(`advertisement/${id}/edit`)
+    }
+
     function showAnnouncement(e){
 
         if(e.target.type !== 'button')
@@ -65,7 +69,7 @@ const CardEditableAdvertisement = ({id, title, image, price, timestamp}) => {
             <div className="footer">
             <span>{timestamp}</span>
                 <div className="buttons">
-                    <Button type = "button">Editar</Button>
+                    <Button type = "button" onClick = {edit}>Editar</Button>
                     <Button type = "button" onClick = {() => deleteAdvertisement(id)} disabled = {loading}>{loading ? <div className="sweet-loading">
                     <LoadingAnimation
                         css={css`

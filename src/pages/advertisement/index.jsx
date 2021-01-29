@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect} from 'react'
 import { Container, Content, Grid } from './styles'
 import Header from '../../components/Header'
 import AdvertiserCard from '../../components/AdvertiserCard'
