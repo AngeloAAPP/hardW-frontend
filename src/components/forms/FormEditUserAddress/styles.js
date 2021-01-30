@@ -7,28 +7,28 @@ export const Container = styled.form`
     background: var(--white);
     justify-self: center;
     flex-direction: column;
-    padding: 20px 50px;
+    padding: 15px 37.5px;
     border-radius: 8px;
     position: relative;
-    width: min(550px, 100%);
+    width: min(425px, 100%);
 
     .title{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
 
         h1{
             color: var(--black-light);
-            font-size: 24px;
+            font-size: 18px;
         }
     }
 
     .edit{
         position: absolute;
-        right: 15px;
-        width: 30px;
-        height: 30px;
+        right: 11.25px;
+        width: 22.5px;
+        height: 22.5px;
         color: var(--primary);
         cursor: pointer;
         display: ${props => props.locked ? 'block' : 'none'};
@@ -41,26 +41,26 @@ export const Container = styled.form`
 
     input, select{
         background: var(--gray-light);
-        height: 70px;
+        height: 52.5px;
         color: ${props => props.locked ? 'var(--placeholder-input-white)' : 'var(--black-light)'}
     }
 
     input{
         width: 100%;
-        padding: 20px;
+        padding: 15px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
-        margin-bottom: 5px;
+        margin-bottom: 3.75px;
 
     }
 
     button{
-        max-width: 100px;
-        max-height: 50px;
-        font-size: 16px;
+        max-width: 75px;
+        max-height: 37.5px;
+        font-size: 12px;
         align-self: flex-end;
-        margin-top: 10px;
+        margin-top: 7.5px;
         transition: background 300ms;
 
         background: ${props => props.locked? 'var(--gray-light)' : 'var(--primary)'};

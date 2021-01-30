@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     background: var(--white);
-    padding: 15px;
+    padding: 11.25px;
     border-radius: 8px;
     cursor: pointer;
     
@@ -15,7 +15,7 @@ export const Container = styled.div`
     .content{
         display: flex;
         border-bottom: 2px solid var(--primary);
-        padding-bottom: 15px;
+        padding-bottom: 11.25px;
 
         @media(max-width: 800px){
             flex-direction: column;
@@ -24,8 +24,8 @@ export const Container = styled.div`
         }
 
         .image{
-            width: 300px;
-            height: 165px;
+            width: 225px;
+            height: 123.75px;
             display: flex;
             justify-content: center;
             background: gray;
@@ -46,19 +46,19 @@ export const Container = styled.div`
 
         .info{
 
-            margin-left: 10px;
+            margin-left: 7.5px;
 
             width: 100%;
 
             h1{
                 font-weight: 700;
-                font-size: 16px;
+                font-size: 12px;
             }
 
             h2{
                 color: var(--primary);
-                font-size: 36px;
-                margin-top: 10px;
+                font-size: 27px;
+                margin-top: 7.5px;
                 font-weight: 400;
 
                 @media(max-width: 800px){
@@ -67,7 +67,7 @@ export const Container = styled.div`
             }
 
             hr{
-                margin-top: 15px;
+                margin-top: 11.25px;
 
                 @media(max-width: 800px){
                     margin-top: 10px;
@@ -77,9 +77,9 @@ export const Container = styled.div`
 
             span{
                 display: block;
-                margin-top: 10px;
+                margin-top: 7.5px;
                 color: var(--label-advert);
-                font-size: 14px;
+                font-size: 10.5px;
             }
         }
     }

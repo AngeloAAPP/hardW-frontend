@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
 export const Dropzone = styled.div`
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 5px solid var(--primary-dark);
+    border: 3.75px solid var(--primary-dark);
     cursor: pointer;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 22.5px;
 
     &:hover{
         opacity: .8;
@@ -19,16 +19,16 @@ export const Dropzone = styled.div`
 
 
     svg{
-        height: 70px;
-        width: 70px;
+        height: 52.5px;
+        width: 52.5px;
         color: var(--primary);
 
         &.plus{
-            height: 30px;
-            width: 30px;
+            height: 22.5px;
+            width: 22.5px;
             position: absolute;
-            top: 40px;
-            right: 40px;
+            top: 30px;
+            right: 30px;
         }
     }
 

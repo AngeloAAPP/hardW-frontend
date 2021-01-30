@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
 export const Container = styled.form`
-    max-width: 600px;
+    max-width: 450px;
     width: 100%;
 
     span{
-        margin: 30px 0px;
+        margin: 22.5px 0px;
         display: flex;
         align-items: center;
         color: var(--white);
         width: max-content;
 
         svg{
-            margin-right: 5px;
+            margin-right: 3.75px;
         }
 
         &:hover{
@@ -29,16 +29,15 @@ export const Container = styled.form`
 
     input{
         width: 100%;
-        height: 90px;
-        padding: 20px;
+        height: 67.5px;
+        padding: 15px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
-        margin-bottom: 5px;
+        margin-bottom: 3.75px;
         color: var(--black-light);
 
         @media(max-width: 800px){
-            font-size: 16px;
             margin-bottom: 3px;
         }
     
@@ -54,10 +53,11 @@ export const Container = styled.form`
 
     p{
         color: var(--white);
-        margin-top: 30px;
+        margin-top: 22.5px;
+        font-size: 14px;
 
         @media(max-width: 800px) {
-            font-size: 14px;
+            
             text-align: center;
         }
     }

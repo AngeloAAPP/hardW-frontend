@@ -11,8 +11,8 @@ export const Container = styled.div`
         align-items: center;
 
         img{
-            max-width: 150px;
-            margin-right: 10px;
+            max-width: 112.5px;
+            margin-right: 7.5px;
         }
 
         .link{

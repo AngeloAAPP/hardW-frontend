@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.form`
     
-    max-width: 600px;
+    max-width: 450px;
     width: 100%;
 
     h1{
-        margin-bottom: 80px;
+        margin-bottom: 60px;
 
         @media(max-width: 800px) {
             margin-bottom: 30px;
@@ -14,7 +14,7 @@ export const Container = styled.form`
     }
 
     input + span{
-        margin: 20px 0;
+        margin: 15px 0;
 
         &:hover{
             text-decoration: underline;
@@ -41,9 +41,9 @@ export const Container = styled.form`
     }
 
     span{
-        margin-top: 80px;
+        margin-top: 60px;
         color: var(--gray-light);
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 300;
         display: block;
 

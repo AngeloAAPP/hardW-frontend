@@ -3,34 +3,33 @@ import styled from 'styled-components'
 export const Container = styled.form`
     background: var(--white);
     border-radius: 8px;
-    padding: 20px 60px;
+    padding: 15px 45px;
     display: flex;
     flex-direction: column;
 
     @media(max-width: 800px){
-        padding: 20px 20px;
+        padding: 15px 15px;
     }
 
     h1{
         text-align: center;
         font-weight: 400;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     input{
         width: 100%;
-        height: 90px;
-        padding: 20px;
+        height: 67.5px;
+        padding: 15px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
         background: var(--gray-light);
         color: var(--black);
-        margin-bottom: 28px;
+        margin-bottom: 21px;
 
         @media(max-width: 800px){
             font-size: 16px;
-            margin-bottom: 3px;
             height: 60px;
         }
     
@@ -41,14 +40,14 @@ export const Container = styled.form`
 
     textarea{
         resize: vertical;
-        min-height: 200px;
-        padding: 20px;
+        min-height: 150px;
+        padding: 15px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
         background: var(--gray-light);
         color: var(--black);
-        margin-bottom: 28px;
+        margin-bottom: 21px;
         border: none;
 
         &::placeholder {
@@ -57,12 +56,12 @@ export const Container = styled.form`
     }
 
     button.btn{
-        max-width: 150px;
-        font-size: 20px;
-        max-height: 70px;
+        max-width: 112.5px;
+        font-size: 15px;
+        max-height: 52.5px;
         align-self: flex-end;
-        margin-top: 50px;
-        margin-bottom: 40px;
+        margin-top: 37.5px;
+        margin-bottom: 30px;
     }
 `
 

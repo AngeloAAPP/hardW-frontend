@@ -10,7 +10,7 @@ export const Dropzone = styled.div`
     justify-content: center;
     cursor: pointer;
     position: relative;
-    border: 2px solid var(--primary);
+    border: 1.5px solid var(--primary);
     border-radius: 8px;
     outline: none;
 
@@ -23,8 +23,8 @@ export const Dropzone = styled.div`
     }
 
     svg{
-        height: 70px;
-        width: 70px;
+        height: 52.5px;
+        width: 52.5px;
         color: var(--primary);
     }
 

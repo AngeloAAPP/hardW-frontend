@@ -7,39 +7,39 @@ export const FindAdvertsLocation = styled.section`
     background: var(--primary);
 
     .content{
-        max-width: 600px;
+        max-width: 450px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 15px;
     }
 
     h1{
         text-align: center;
         font-weight: 300;
         color: var(--white);
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .seletores{
         display: flex;
-        margin-top: 15px;
+        margin-top: 11.25px;
 
         select{
-            height: 50px;
-            font-size: 16px;
+            height: 37.5px;
+            font-size: 12px;
             text-align: center;
             text-align-last: center;
             background: var(--white);
-            margin-right: 5px;
+            margin-right: 3.75px;
         }
 
         .search{
             background-color: var(--white);
-            height: 50px;
+            height: 37.5px;
             border-radius: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 120px;
+            width: 90px;
             cursor: pointer;
 
             svg{
@@ -58,13 +58,13 @@ export const FindAdvertsLocation = styled.section`
 `
 
 export const Main = styled.main`
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 10px;
+    grid-template-columns: 225px 1fr;
+    gap: 7.25px;
 
     @media(max-width: 800px){
         display: block;
@@ -98,9 +98,9 @@ export const Filters = styled.section`
         }
     }
     h2{
-        font-size: 30px;
+        font-size: 22.5px;
         font-weight: 300;
-        margin-left: 5px;
+        margin-left: 3.75px;
 
         span{
             display: none;
@@ -112,7 +112,7 @@ export const Filters = styled.section`
     }
 
     details{
-        margin-top: 10px;
+        margin-top: 7.5px;
         color: var(--primary);
     }
 
@@ -122,8 +122,8 @@ export const Filters = styled.section`
     }
 
     .options{
-        margin-top: 8px;
-        padding-left: 10px;
+        margin-top: 6px;
+        padding-left: 7.5px;
     }
 
     input[type=text]{
@@ -137,24 +137,25 @@ export const Filters = styled.section`
     
     h3{
         font-weight: 400;
-        font-size: 12px;
+        font-size: 10px;
         color: var(--label-advert);
-        margin: 8px 0;
+        margin: 6px 0;
         display: flex;
         align-items: center;
 
         svg{
-            margin-right: 5px;
+            margin-right: 3.75px;
             color: var(--primary-dark)
         }
     }
 
     .option{
-        margin-top: 5px;
+        margin-top: 3.75px;
     }
 
     label{
-        margin-left: 10px;
+        margin-left: 7.5px;
+        font-size: 12px;
         color: var(--black);
     }
 
@@ -164,10 +165,10 @@ export const Filters = styled.section`
 
     button{
         max-width: 50%;
-        height: 50px;
-        font-size: 20px;
+        height: 37.5px;
+        font-size: 15px;
         margin: 0 auto;
-        margin-top: 15px;
+        margin-top: 11.75px;
     }
 `
 

@@ -7,36 +7,36 @@ export const Container = styled.form`
     background: var(--white);
     justify-self: center;
     flex-direction: column;
-    padding: 20px 50px;
+    padding: 15px 37.5px;
     border-radius: 8px;
     position: relative;
-    width: min(550px, 100%);
+    width: min(425px, 100%);
 
     .title{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
 
         h1{
             color: var(--black-light);
-            font-size: 24px;
+            font-size: 18px;
         }
     }
 
 
     input{
         background: var(--gray-light);
-        height: 70px;
+        height: 52.5px;
         color: var(--black-light)
     }
 
     button{
-        max-width: 100px;
-        max-height: 50px;
-        font-size: 16px;
+        max-width: 75px;
+        max-height: 37.5px;
+        font-size: 12px;
         align-self: flex-end;
-        margin-top: 20px;
+        margin-top: 15px;
         transition: background 300ms;
 
         background: var(--primary);

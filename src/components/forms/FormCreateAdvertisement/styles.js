@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.form`
     background: var(--white);
     border-radius: 8px;
-    padding: 20px 60px;
+    padding: 15px 45px;
     display: flex;
     flex-direction: column;
 
@@ -14,19 +14,18 @@ export const Container = styled.form`
     h1{
         text-align: center;
         font-weight: 400;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     input{
         width: 100%;
-        height: 90px;
-        padding: 20px;
+        height: 67.5px;
+        padding: 15px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
 
         @media(max-width: 800px){
-            font-size: 16px;
             margin-bottom: 3px;
         }
     
@@ -38,14 +37,14 @@ export const Container = styled.form`
 
     textarea{
         resize: vertical;
-        min-height: 200px;
-        padding: 20px;
+        min-height: 150px;
+        padding: 15px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
         background: var(--gray-light);
         color: var(--black);
-        margin-bottom: 28px;
+        margin-bottom: 21px;
         border: none;
 
         &::placeholder {
@@ -56,7 +55,7 @@ export const Container = styled.form`
     input, select{
         background: var(--gray-light);
         color: var(--black);
-        margin-bottom: 28px;
+        margin-bottom: 21px;
         
         @media(max-width: 800px){
             height: 60px;
@@ -70,21 +69,21 @@ export const Container = styled.form`
     label{
         color: var(--black-light);
         display: block;
-        margin-bottom: 28px;
+        margin-bottom: 21px;
     }
 
     .subcategories{
         img{
-            max-width: 200px;
-            border: 2px solid var(--primary);
+            max-width: 150px;
+            border: 1.5px solid var(--primary);
             border-radius: 8px;
-            margin-right: 5px;
-            padding: 22px;
+            margin-right: 3.75px;
+            padding: 16.5px;
             cursor: pointer;
 
             &.selected, &:hover{
-                border-width: 10px;
-                padding: 14px;
+                border-width: 7.5px;
+                padding: 10.5px;
                 @media(max-width: 800px){
                     padding: 7px;
                 }
@@ -98,12 +97,12 @@ export const Container = styled.form`
     }
 
     button.btn{
-        max-width: 150px;
-        font-size: 20px;
-        max-height: 70px;
+        max-width: 112.5px;
+        font-size: 15px;
+        max-height: 52.5px;
         align-self: flex-end;
-        margin-top: 50px;
-        margin-bottom: 40px;
+        margin-top: 37.5px;
+        margin-bottom: 30px;
     }
 `
 

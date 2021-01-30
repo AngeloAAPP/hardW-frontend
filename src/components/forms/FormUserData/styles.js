@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.form`
     
-    max-width: 600px;
+    max-width: 450px;
     width: 100%;
 
     h2{
-        margin-bottom: 60px;
+        margin-bottom: 45px;
 
         @media(max-width: 800px) {
             margin-bottom: 30px;
@@ -15,12 +15,12 @@ export const Container = styled.form`
 
     input{
         width: 100%;
-        height: 90px;
+        height: 67.5px;
         padding: 20px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
-        margin-bottom: 5px;
+        margin-bottom: 3.75px;
         color: var(--black-light);
 
         @media(max-width: 800px){
@@ -53,9 +53,9 @@ export const Container = styled.form`
     }
 
     span{
-        margin-top: 80px;
+        margin-top: 60px;
         color: var(--gray-light);
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 300;
         display: block;
 

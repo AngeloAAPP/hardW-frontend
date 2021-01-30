@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
 export const Container = styled.form`
-    max-width: 600px;
+    max-width: 450px;
     width: 100%;
 
     span{
-        margin: 30px 0px;
+        margin: 22.5px 0px;
         display: flex;
         align-items: center;
         color: white;
         width: max-content;
 
         svg{
-            margin-right: 5px;
+            margin-right: 3.75px;
         }
 
         &:hover{

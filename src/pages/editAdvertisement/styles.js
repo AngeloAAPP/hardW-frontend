@@ -23,27 +23,27 @@ export const Container = styled.div`
         left: 0;
         background: var(--gray-light);
         z-index: -1;
-        height: 40rem;
+        height: 25rem;
     }
 `
 
 
 export const Content = styled.main`
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
 
     .images{
         display: flex;
         flex-wrap: wrap;
         max-width: 100%;
-        margin: 20px 0px;
+        margin: 15px 0px;
         justify-content: center;
 
         .image{
-            height: 150px;
-            width: 150px;
+            height: 112.5px;
+            width: 112.5px;
             position: relative;
-            margin: 5px;
+            margin: 3.75px;
             border-radius: 8px;
             background-color: blue;
 
@@ -54,13 +54,13 @@ export const Content = styled.main`
 
             svg.close{
                 position: absolute;
-                right: -8px;
-                top: -8px;
+                right: -6px;
+                top: -6px;
                 color: white;
                 cursor: pointer;
                 background-color: var(--primary);
                 border-radius: 50%;
-                font-size: 20px;
+                font-size: 15px;
             }
 
             .opacity{
@@ -85,13 +85,13 @@ export const Content = styled.main`
                 position: absolute;
                 bottom: 0;
                 width: 100%;
-                height: 40px;
+                height: 30px;
                 border: none;
                 background: white;
                 border-bottom-left-radius: 8px;
                 border-bottom-right-radius: 8px;
                 cursor: pointer;
-                border: 2px solid var(--primary);
+                border: 1.5px solid var(--primary);
                 outline: none;
             }
         }
@@ -101,7 +101,7 @@ export const Content = styled.main`
             height: 100%; 
             object-fit: cover;
             border-radius: 8px;
-            border: 2px solid var(--primary);
+            border: 1.5px solid var(--primary);
         }
     }
 
@@ -116,17 +116,17 @@ export const Form = styled.div`
 `
 
 export const FormContent = styled.div`
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
-    padding-bottom: 60px;
+    padding-bottom: 45px;
 
     p{
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     @media(max-width: 800px){
-        padding-bottom: 15px;
+        padding-bottom: 11.25px;
         margin-top: 0px;
     }
 `

@@ -74,6 +74,7 @@ const FormCreateAdvertisement = ({images}) => {
                 {
                     id: response.data.id,
                     name: response.data.name,
+                    description: response.data.description,
                     price: response.data.price,
                     status: response.data.status,
                     categoryID: response.data.categoryID,

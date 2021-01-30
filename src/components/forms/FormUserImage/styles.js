@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.form`
-    max-width: 600px;
+    max-width: 450px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ export const Container = styled.form`
     }
 
     span{
-        margin: 30px 0px;
+        margin: 22.5px 0px;
         display: flex;
         align-items: center;
         color: white;
@@ -20,7 +20,7 @@ export const Container = styled.form`
         align-self: flex-start;
 
         svg{
-            margin-right: 5px;
+            margin-right: 3.75px;
         }
 
         &:hover{

@@ -23,17 +23,17 @@ export const Container = styled.div`
         left: 0;
         background: var(--gray-light);
         z-index: -1;
-        height: 40rem;
+        height: 30rem;
     }
 `
 
 
 export const Content = styled.main`
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
 
     #MultipleDropzone{
-        margin-top: 60px;
+        margin-top: 45px;
         @media(max-width: 800px){
             margin-top: 15px;
         }
@@ -42,8 +42,8 @@ export const Content = styled.main`
     p{
         text-align: center;
         color: var(--label-advert);
-        margin: 15px 0;
-        font-size: 12px;
+        margin: 11.25px 0;
+        font-size: 9px;
     }
 
 `
@@ -57,9 +57,9 @@ export const Form = styled.div`
 `
 
 export const FormContent = styled.div`
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
-    padding-bottom: 60px;
+    padding-bottom: 45px;
 
     @media(max-width: 800px){
         padding-bottom: 15px;

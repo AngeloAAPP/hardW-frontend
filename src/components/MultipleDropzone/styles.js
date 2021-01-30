@@ -6,14 +6,14 @@ import styled from 'styled-components'
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
     border: 1px dashed var(--black);
     border-radius: 8px;
     background-color: #fafafa;
     color: #bdbdbd;
     outline: none;
     transition: border .24s ease-in-out;
-    min-height: 300px;
+    min-height: 225px;
 
     .dropzone{
 
@@ -37,7 +37,7 @@ import styled from 'styled-components'
 
     h1{
         color: var(--black);
-        margin-bottom: 5px;
+        margin-bottom: 3.75px;
         font-weight: 400;
     }
 
@@ -48,7 +48,7 @@ import styled from 'styled-components'
         align-items: center;
 
         h4{
-            margin: 20px 0px;
+            margin: 15px 0px;
         }
 
         .images{

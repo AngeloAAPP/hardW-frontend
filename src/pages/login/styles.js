@@ -18,8 +18,8 @@ export const LeftSide = styled.div`
     justify-content: center;
 
     img{
-        width: 220px;
-        height: 110px;
+        width: 165px;
+        height: 82.5px;
     }
 
     @media(max-width: 800px) {

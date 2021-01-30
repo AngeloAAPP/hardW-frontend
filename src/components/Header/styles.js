@@ -10,8 +10,8 @@ export const Content = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1700px;
-    padding: 0 60px;
+    max-width: 1275px;
+    padding: 0 45px;
     margin: 0 auto;    
 
     @media(max-width: 800px){
@@ -20,14 +20,9 @@ export const Content = styled.div`
 
     img{
         &.logo{
-            width: 200px;
-            height: 100px;
-            padding: 8px;
-
-            @media(max-width: 800px){
-                width: 170px;
-                height: 85px;
-            }
+            width: 150px;
+            height: 75px;
+            padding: 6px;
         }
     }
 `
@@ -61,10 +56,11 @@ export const Nav = styled.nav`
         }
 
         li{
+            font-size: 12px;
             position: relative;
             div{
-                width: 60px;
-                height: 60px;
+                width: 45px;
+                height: 45px;
                 cursor: pointer;
 
                 img{
@@ -84,7 +80,7 @@ export const Nav = styled.nav`
 
                 span{
                     display: none;
-                    margin-top: 10px;
+                    margin-top: 7.5px;
 
                     @media(max-width: 800px){
                         display: block;
@@ -96,7 +92,7 @@ export const Nav = styled.nav`
                     flex-direction: column;
                     background: var(--white);
                     position: absolute;
-                    top: 100px;
+                    top: 75px;
                     border-radius: 8px;
                     animation: smallRight 500ms;
                     z-index: 10;
@@ -104,11 +100,11 @@ export const Nav = styled.nav`
 
                     &::before{
                         content: '';
-                        width: 16px;
-                        height: 16px;
+                        width: 12px;
+                        height: 12px;
                         background-color: var(--white);
                         position: absolute;
-                        top: -8px;
+                        top: -6px;
                         transform: rotate(45deg);
                         border-radius: 25%;
                         border-top: 1px solid var(--primary);
@@ -133,19 +129,11 @@ export const Nav = styled.nav`
                         margin: 0;
                         text-align: center;
                         position: relative;
-
-                        &:first-child{
-                            
-                        }
-
-                        &:last-child{
-                            
-                        }
                     }
 
                     a, strong{
                         display: inline-block;
-                        padding: 15px 20px;
+                        padding: 11.5px 15px;
                         font-weight: 400;
 
                         &:hover{
@@ -198,11 +186,11 @@ export const Nav = styled.nav`
                     justify-content: center;
                     align-items: center;
                     border-radius: 8px;
-                    font-size: 36px;
+                    font-size: 27px;
                     cursor: pointer;
-                    width: 140px;
-                    height: 45px;
-                    font-size: 16px;
+                    width: 105px;
+                    height: 33.75px;
+                    font-size: 12px;
                     background: var(--primary);
                     transition: background 200ms;
                     color: var(--white);
@@ -220,16 +208,16 @@ export const Nav = styled.nav`
                 }
 
                 &.margintop{
-                    margin-top: ${props => !props.mobile? '20px' : '0px'};
+                    margin-top: ${props => !props.mobile? '15px' : '0px'};
                 }
              }
         }
 
         li + li{
-            margin-left: 20px;
+            margin-left: 15px;
 
             &.username{
-                margin-left: 50px;
+                margin-left: 37.5px;
 
                 @media(max-width: 800px){
                     display: none;

@@ -18,8 +18,8 @@ export const LeftSide = styled.div`
     justify-content: center;
 
     img{
-        width: 220px;
-        height: 110px;
+        width: 165px;
+        height: 82.5px;
     }
 
     @media(max-width: 800px) {
@@ -29,7 +29,7 @@ export const LeftSide = styled.div`
 `
 
 export const RightSide = styled.main`
-    padding: 30px;
+    padding: 22.5px;
     background: var(--primary);
     display: flex;
     justify-content: center;

@@ -5,7 +5,7 @@ export const Container = styled.div`
     height: 100%;
 
     div.loading{
-        padding: 50px;
+        padding: 37.5px;
         display: flex;
         align-items: center;
     }
@@ -13,10 +13,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     height: 100%;
-    padding: 50px;
+    padding: 37.5px;
 
     @media(max-width: 600px){
         padding: 10px;
@@ -24,26 +24,26 @@ export const Content = styled.div`
 
     .title{
         h1{
-            font-size: 20px;
+            font-size: 15px;
             font-weight: 600;
         }
         h2{
             color: var(--label-advert);
             font-weight: 200;
-            font-size: 14px;
-            margin-top: 5px;
+            font-size: 10.5px;
+            margin-top: 37.5px;
         }
     }
 
     .session-title{
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 600;
-        margin: 25px 0;
+        margin: 18.75px 0;
     }
 
     .description{
         background-color: var(--white);
-        padding: 10px;
+        padding: 7.5px;
         color: var(--label-advert);
         line-height: 1.4;
         border-radius: 8px;
@@ -59,16 +59,16 @@ export const Content = styled.div`
 
         .info{
 
-            margin-right: 5px;
+            margin-right: 3.75px;
 
             h2, h3{
-                font-size: 16px;
+                font-size: 14px;
             }
 
             h3{
                 color: var(--label-advert);
                 font-weight: 300;
-                margin-top: 3px;
+                margin-top: 2.25px;
             }
 
         }
@@ -84,10 +84,10 @@ export const Content = styled.div`
             flex-direction: column;
             align-items: center;
             background-color: var(--white);
-            padding: 20px;
+            padding: 15px;
 
             &:first-child{
-                margin-right: 50px;
+                margin-right: 37.5px;
 
                 @media(max-width: 500px)
                 {
@@ -96,9 +96,9 @@ export const Content = styled.div`
             }
 
             img{
-                width: 180px;
-                height: 180px;
-                margin-bottom: 10px;
+                width: 135px;
+                height: 135px;
+                margin-bottom: 7.5px;
 
                 @media(max-width: 800px)
                 {
@@ -112,15 +112,15 @@ export const Content = styled.div`
     .questions-container{
 
         background: var(--white);
-        padding: 20px;
+        padding: 15px;
         border-radius: 8px;
 
         .ask, .to-reply{
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
 
             input, button{
-                height: 60px;
+                height: 45px;
                 background: var(--gray-light);
 
                 @media(max-width: 800px){
@@ -129,7 +129,7 @@ export const Content = styled.div`
             }
 
             input{
-                font-size: 16px;
+                font-size: 12px;
 
                 @media(max-width: 800px){
                     font-size: 12px;
@@ -141,11 +141,11 @@ export const Content = styled.div`
             }
             
             button{
-                max-width: 60px;
+                max-width: 45px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-left: 5px;
+                margin-left: 3.75px;
                 color: var(--primary-dark);
 
                 @media(max-width: 800px){
@@ -160,11 +160,11 @@ export const Content = styled.div`
 
         .to-reply{
             margin-bottom: 0;
-            margin-top: 10px;
+            margin-top: 7.5px;
         }
 
         .question{
-            margin-bottom: 20px;
+            margin-bottom: 15px;
 
             .content, .answer{
                 display: flex;
@@ -172,20 +172,20 @@ export const Content = styled.div`
 
                 svg{
                     color: var(--primary);
-                    font-size: 24px;
-                    margin-right: 15px;
+                    font-size: 18px;
+                    margin-right: 11.25px;
                     flex-shrink: 0;
                 }
 
                 p{
                     font-weight: 550;
-                    font-size: 16px;
+                    font-size: 12px;
                     overflow-wrap: anywhere;
 
                     time{
-                        font-size: 12px;
+                        font-size: 9px;
                         color: var(--label-advert);
-                        margin-left: 5px;
+                        margin-left: 3.75px;
                         font-weight: 400;
                     }
 
@@ -193,8 +193,8 @@ export const Content = styled.div`
             }
 
             .answer{
-                margin-left: 35px;
-                margin-top: 5px;
+                margin-left: 26.25px;
+                margin-top: 3.75px;
 
                 @media(max-width: 800px){
                     margin-top: 15px;
@@ -202,7 +202,7 @@ export const Content = styled.div`
 
                 p{
                     font-weight: 400;
-                    font-size: 14px;
+                    font-size: 10.5px;
                     color: var(--label-advert);
                     overflow-wrap: anywhere;
                 }
@@ -211,7 +211,7 @@ export const Content = styled.div`
     }
         span{
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 7.5px;
             color: var(--label-advert);
         }
 `
@@ -219,8 +219,8 @@ export const Content = styled.div`
 export const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 15px;
-    gap: 15px;
+    margin-top: 11.25px;
+    gap: 11.25px;
 
     @media(max-width: 820px){
         grid-template-columns: 1fr;
@@ -236,14 +236,14 @@ export const Grid = styled.div`
         }
 
         .no-image{
-            width: 505px;
-            height: calc(100% - 43px);
+            width: 378.75px;
+            height: calc(100% - 32.25px);
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: var(--placeholder-input-white);
             border-radius: 8px;
-            min-height: 400px;
+            min-height: 300px;
 
             @media(max-width: 600px){
                 width: 100%;
@@ -252,18 +252,17 @@ export const Grid = styled.div`
         }
 
         .main-image{
-            width: 505px;
+            width: 378.75px;
             display: flex;
             justify-content: center;
             align-items: center;
             background: var(--placeholder-input-white);
             border-radius: 8px;
-            height: 400px;
+            height: 300px;
             position: relative;
 
             @media(max-width: 600px){
                 width: 300px;
-                height: 300px;
             }
 
             img{
@@ -274,7 +273,7 @@ export const Grid = styled.div`
 
             svg{
                 position: absolute;
-                font-size: 80px;
+                font-size: 60px;
                 cursor: pointer;
                 color: white;
                 stroke: black;
@@ -296,8 +295,8 @@ export const Grid = styled.div`
 
         .all-images{
             display: flex;
-            max-width: min(510px, 100%);
-            margin-top: 5px;
+            max-width: min(382.5px, 100%);
+            margin-top: 3.75px;
             justify-content: center;
 
             @media(max-width: 600px){
@@ -306,10 +305,10 @@ export const Grid = styled.div`
             }
 
             img{
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
                 border-radius: 8px;
-                margin-right: 5px;
+                margin-right: 3.75px;
                 cursor: pointer;
 
                 @media(max-width: 600px){
@@ -317,20 +316,20 @@ export const Grid = styled.div`
                 }
 
                 &.selected{
-                    border: 3px solid var(--primary);
+                    border: 2.25px solid var(--primary);
                 }
             }
         }
 
         .price{
-            width: min(505px, 100%);
+            width: min(378.75px, 100%);
             text-align: center;
             color: var(--primary);
             background-color: var(--white);
-            padding: 5px;
-            font-size: 24px;
+            padding: 3.75px;
+            font-size: 18px;
             border-radius: 8px;
-            margin-top: 5px;
+            margin-top: 3.75px;
         }
     }
 `

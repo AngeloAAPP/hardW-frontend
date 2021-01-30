@@ -8,11 +8,11 @@ export const Grid = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    margin-top: 50px;
-    max-width: 1300px;
-    margin: 40px auto 0px auto;
-    padding: 20px;
+    grid-gap: 15px;
+    margin-top: 37.5px;
+    max-width: 975px;
+    margin: 30px auto 0px auto;
+    padding: 15px;
 
     @media(max-width: 800px){
         grid-template-columns: 1fr;
@@ -42,7 +42,8 @@ export const Menu = styled.nav`
         
         li{
             background: var(--white);
-            padding: 15px 50px;
+            padding: 11.25px 37.5px;
+            font-size: 12px;
             cursor: pointer;
             transition: background 200ms;
 

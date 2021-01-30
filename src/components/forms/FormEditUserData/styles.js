@@ -7,27 +7,27 @@ export const Container = styled.form`
     background: var(--white);
     justify-self: center;
     flex-direction: column;
-    padding: 20px 50px;
+    padding: 15px 37.5px;
     border-radius: 8px;
     position: relative;
-    width: min(550px, 100%);
+    width: min(425px, 100%);
     margin-bottom: 20px;
 
     .title{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
 
         h1{
             color: var(--black-light);
-            font-size: 24px;
+            font-size: 18px;
         }
     }
 
     .avatar{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         position: relative;
 
@@ -36,20 +36,20 @@ export const Container = styled.form`
             height: 100%; 
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid var(--primary-dark);
+            border: 3.75px solid var(--primary-dark);
         }
     }
 
     .btn-avatar{
         margin: 0 auto;
-        margin-top: 8px;
-        padding: 0 5px;
+        margin-top: 6px;
+        padding: 0 3.75px;
     }
 
     .buttons{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 7.5px;
     }
 
     .edit{
@@ -70,35 +70,35 @@ export const Container = styled.form`
     span.about{
         display: flex;
         align-items: center;
-        font-size: 14px;
+        font-size: 10.5px;
         color: var(--black-light);
-        margin-bottom: 10px;
+        margin-bottom: 7.5px;
 
         svg{
             fill: var(--primary);
-            width: 25px;
-            height: 25px;
-            margin-left: 10px;
+            width: 18.75px;
+            height: 18.75px;
+            margin-left: 7.5px;
         }
     }
 
     span.note{
         align-self: flex-start;
-        font-size: 12px;
+        font-size: 9px;
         color: var(--label-advert);
-        margin-top: 5px;
+        margin-top: 3.75px;
     }
 
     input{
         width: 100%;
         background: var(--gray-light);
-        height: 70px;
+        height: 52.5px;
         color: ${props => props.locked ? 'var(--placeholder-input-white)' : 'var(--black-light)'};
-        padding: 20px;
+        padding: 15px;
         border-radius: 8px;
-        font-size: 20px;
+        font-size: 15px;
         outline: none;
-        margin-bottom: 5px;
+        margin-bottom: 3.75px;
 
         &.notEditable{
             color: var(--placeholder-input-white);
@@ -106,11 +106,11 @@ export const Container = styled.form`
     }
 
     button{
-        max-width: 100px;
-        max-height: 50px;
-        font-size: 16px;
+        max-width: 75px;
+        max-height: 37.5px;
+        font-size: 12px;
         align-self: flex-end;
-        margin-top: 10px;
+        margin-top: 7.5px;
         transition: background 300ms;
 
         background: ${props => props.locked? 'var(--gray-light)' : 'var(--primary)'};

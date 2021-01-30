@@ -9,7 +9,7 @@ export const Container = styled.div`
     flex-direction: column;
 
     p{
-        margin-top: 5px;
-        font-size: 18px;
+        margin-top: 3.75px;
+        font-size: 13.5px;
     }
 `

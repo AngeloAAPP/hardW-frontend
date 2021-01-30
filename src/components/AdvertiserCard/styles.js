@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 15px;
     background-color: var(--white);
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 
     .contact{
         width: 100%;
-        margin-top: 8px;
+        margin-top: 6px;
 
         p{
             color: var(--label-advert);
@@ -21,7 +21,7 @@ export const Container = styled.div`
             
             svg{
                 color: var(--green-whatsapp);
-                font-size: 16px;
+                font-size: 12px;
             }
         }
 
@@ -31,14 +31,14 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 5px;
+            padding: 3.75px;
             display: flex;
             text-decoration: none;
             color: white;
 
             .text{
-                font-size: 20px;
-                margin-left: 5px;
+                font-size: 15px;
+                margin-left: 3.75px;
             }
         }
     }
@@ -55,25 +55,25 @@ export const Content = styled.div`
     }
 
     .image{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
-        margin-top: 15px;
+        margin-top: 11.25px;
 
         img{
             width: 100%;
             height: 100%; 
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid var(--primary);
+            border: 1.5px solid var(--primary);
         }
     }
 
     h3{
-        margin-top: 15px;
+        margin-top: 11.25px;
         color: var(--label-advert);
         font-weight: 500;
-        font-size: 24px;
+        font-size: 18px;
     }
 
     span{

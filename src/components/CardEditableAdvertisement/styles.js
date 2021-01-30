@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.div`
     background: var(--white);
     width: 100%;
-    padding: 15px;
+    padding: 11.25px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 7.5px;
     cursor: pointer;
 
     @media(max-width: 800px){
@@ -21,8 +21,8 @@ export const Container = styled.div`
         }
 
         .image{
-            width: 300px;
-            height: 165px;
+            width: 225px;
+            height: 123.75px;
             display: flex;
             justify-content: center;
             background: gray;
@@ -43,19 +43,19 @@ export const Container = styled.div`
 
         .info{
 
-            margin-left: 10px;
+            margin-left: 7.5px;
 
             width: 100%;
 
             h1{
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 12px;
             }
 
             h2{
                 color: var(--primary);
-                font-size: 36px;
-                margin-top: 10px;
+                font-size: 27px;
+                margin-top: 7.5px;
                 font-weight: 400;
 
                 @media(max-width: 800px){
@@ -64,7 +64,7 @@ export const Container = styled.div`
             }
 
             hr{
-                margin-top: 15px;
+                margin-top: 11.25px;
 
                 @media(max-width: 800px){
                     margin-top: 10px;
@@ -78,7 +78,7 @@ export const Container = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 15px;
 
         @media(max-width: 800px){
             flex-direction: column;
@@ -87,8 +87,8 @@ export const Container = styled.div`
 
         span{
             color: var(--label-advert);
-            margin-left: 2px;
-            font-size: 12px;
+            margin-left: 1.5px;
+            font-size: 9px;
 
             @media(max-width: 800px){
                 align-self: flex-start;
@@ -106,8 +106,8 @@ export const Container = styled.div`
             button{
                 height: auto;
                 width: auto;
-                font-size: 18px;
-                padding: 5px 15px;
+                font-size: 13.5px;
+                padding: 3.75px 11.25px;
                 font-weight: 300;
                 background: var(--primary);
 
