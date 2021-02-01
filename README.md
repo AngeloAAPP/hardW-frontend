@@ -9,13 +9,13 @@ para hardware.
 Projeto próprio desenvolvido do zero com a finalidade de aprendizado.
 Na parte de front-end, foi possível aprender e aprimorar itens interessantes como: 
 
-##Manter usuário autenticado com Jsonwebtoken
-##Cliente solicitar refresh token de forma automática, para maior segurança
-##Compartilhamento de estados através da context API do React, auxiliando na autenticação e persistência dos dados
-##Sistema 100% responsivo
-##Utilização da biblioteca CSS styled-components para o desenvolvimento do layout
-##Chamadas para o backend utilizando Axios
-##upload de imagens para o backend com visualização prévia, utilizando react-dropzone
+## Manter usuário autenticado com Jsonwebtoken
+## Cliente solicitar refresh token de forma automática, para maior segurança
+## Compartilhamento de estados através da context API do React, auxiliando na autenticação e persistência dos dados
+## Sistema 100% responsivo
+## Utilização da biblioteca CSS styled-components para o desenvolvimento do layout
+## Chamadas para o backend utilizando Axios
+## upload de imagens para o backend com visualização prévia, utilizando react-dropzone
 
 entre outras coisas.
 Protótipo do projeto feito no figma, disponível em: https://www.figma.com/file/S8pinkNEZ32ZzJDrTSnuLI/hardW?node-id=0%3A1
